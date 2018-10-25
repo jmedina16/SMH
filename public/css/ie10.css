@@ -1,0 +1,35 @@
+.ie10 #saves{width: 126px !important;}
+.ie10 #embed_code{width:244px !important; height: 60px !important;}
+.ie10 .chapters_view textarea#embed_code{width: 512px !important; height: 168px !important;}
+.ie10 textarea#embed_survey_code{width: 512px !important; height: 168px !important;}
+.ie10 textarea#limesurvey_code{width: 512px !important; height: 168px !important;}
+.ie10 #data-name{line-height: 20px;}
+.ie10 .manual_playlist #entry-bottom-table .ui-icon {position: relative; right: 8px;}
+.ie10 .manual_playlist #manual-arrows {width: 31px !important;}
+.ie10 .manual_playlist #manual-arrows .ui-icon {position: relative; right: 6px;}
+.ie10 .add_single_player #manual-arrows .ui-icon {position: relative; right: 6px;}
+.ie10 .add_single_player #entry-bottom-table .ui-icon {position: relative; right: 8px;}
+.ie10 .cancelApply{padding-left: 6px !important; padding-right: 7px !important;}
+.ie10 #firstoverlay{float: left; margin-left: 60px;}
+.ie10 #followingoverlay{float: left; margin-left: 17px;}
+.ie10 #displayoverlay{float: left; margin-left: 85px;}
+.ie10 #moveMulti-up .ui-icon-triangle-1-n{margin-top: -3px !important;}
+.ie10 #moveMulti-down .ui-icon-triangle-1-s{margin-top: -2px !important;}
+.ie10 #comp-wrapper{margin-top: 0px !important;}
+.ie10 .rule_based_playlist #move-up-adv .ui-icon-triangle-1-n{position: relative; left: -6px;}
+.ie10 .rule_based_playlist #move-down-adv .ui-icon-triangle-1-s{position: relative; left: -6px;}
+.ie10 input[type="text"]{padding-right: 0px !important;}
+.ie10 #AccountForm select{width: 331px !important;}
+.ie10 input[type="radio"], .ie10 input[type="checkbox"]{border: 0 !important;}
+.ie10 #addEntry {padding-right: 9px !important;}
+.ie10 #addMulti {padding-right: 9px !important;}
+.ie10 .add_rule {height: 400px !important; width: 730px !important;}
+.ie10 .colorpicker input{font-size: 12px !important; padding: 2px 2px 2px 2px !important; top: 3px !important;}
+.ie10 .rule_based_playlist {height: 500px !important; width: 730px !important;}
+.ie10 .result-select{color: #83A92F; height: 27px; padding: 15px 5px 5px 10px; margin-left: 85px; font-weight: bold; display: none; font-size: 12px; width: 386px;}
+.ie10 #accordion-wrapper{height: 567px;}
+.ie10 .ui-icon-triangle-1-e{background-position:-38px -16px !important}
+.ie10 #manual-playlist-table .ui-icon-triangle-1-n, .ie10 #manual-playlist-table .ui-icon-triangle-1-s{position: relative; left: -8px; top: -5px;}
+.ie10 #rba-playlist-table .ui-icon-triangle-1-n, .ie10 #multi-playlist-table .ui-icon-triangle-1-n{background-position:1px -20px; position:relative; left: -8px;}
+.ie10 #rba-playlist-table .ui-icon-triangle-1-s, .ie10 #multi-playlist-table .ui-icon-triangle-1-s {background-position:-65px -20px; position:relative; left: -8px;}
+.ie10 #move-up-adv, .ie10 #moveMulti-up {margin-top: 13px;}

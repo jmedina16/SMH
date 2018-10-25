@@ -1,0 +1,5 @@
+.ie11 .ui-icon-triangle-1-e{background-position:-38px -16px !important; position: relative; left: -3px;}
+.ie11 #manual-playlist-table .ui-icon-triangle-1-n, .ie11 #manual-playlist-table .ui-icon-triangle-1-s{position: relative; left: -7px; top: -5px;}
+.ie11 #rba-playlist-table .ui-icon-triangle-1-n, .ie11 #multi-playlist-table .ui-icon-triangle-1-n{background-position:1px -20px; position:relative; left: -8px;}
+.ie11 #rba-playlist-table .ui-icon-triangle-1-s, .ie11 #multi-playlist-table .ui-icon-triangle-1-s {background-position:-65px -20px; position:relative; left: -8px;}
+.ie11 #move-up-adv, .ie11 #moveMulti-up {margin-top: 13px;}
