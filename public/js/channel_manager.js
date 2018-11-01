@@ -4419,19 +4419,19 @@ ChannelManager.prototype = {
 
         $('#smh-modal4').on('keyup', '#dim_height', function (ev) {
             var height = $('#dim_height').val();
-            $('#embed_code').text('<iframe frameborder="0" style="height: ' + height + 'px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
+            $('#embed_code').text('<iframe frameborder="0" style="height: ' + height + 'px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
         });
 
         $('#smh-modal4').on('change', 'select#players', function (event) {
             uiconf_id = $('select#players option:selected').val();
             $('#shortlink').html('<a target="_blank" href="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '">https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '</a>');
             smhCM.generateScedulerIframe(uiconf_id);
-            $('#embed_code').text('<iframe frameborder="0" style="height: 800px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
+            $('#embed_code').text('<iframe frameborder="0" style="height: 800px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
         });
 
         $('#shortlink').html('<a target="_blank" href="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '">https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '</a>');
         smhCM.generateScedulerIframe(uiconf_id);
-        $('#embed_code').text('<iframe frameborder="0" style="height: 800px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
+        $('#embed_code').text('<iframe frameborder="0" style="height: 800px; width: 100%; border: none" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" src="https://devplatform.streamingmediahosting.com/apps/channel/v1.0/schedule.php?pid=' + sessInfo.pid + '&playerId=' + uiconf_id + '"></iframe>');
 
         $('#smh-modal4').on('click', '#select-bttn', function (event) {
             $('#smh-modal4 #embed_code').select();
