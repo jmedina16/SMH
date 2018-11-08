@@ -77,7 +77,7 @@ Upload.prototype = {
                         filename = file.name;
                         sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
                         sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
-                        session = sessionName + sessionID;
+                        session = sessionName + 'TEST' + sessionID;
 
                         $.getJSON('/server/php/', {
                             file: session,
@@ -163,7 +163,7 @@ Upload.prototype = {
                 // Get the generated sessionID for this upload
                 sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
                 sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-                session = sessionName + sessionID;
+                session = sessionName + 'TEST' + sessionID;
 
                 // Set the required headers for the nginx upload module
                 e.setRequestHeader("Session-ID", session);
@@ -192,7 +192,7 @@ Upload.prototype = {
                 filesize = data.files[0].size;
                 sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
                 sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
-                session = sessionName + sessionID;
+                session = sessionName  + 'TEST' + sessionID;
 
                 if (data.entry_details == undefined) {
                     sessData = {
