@@ -2312,7 +2312,7 @@ LiveStreams.prototype = {
         });
     },
     //View Encoder Settings Modal
-    viewSettings: function (name, bitrate, stream_name) {
+    viewSettings: function (name, bitrate, stream_name, eid) {
         smhMain.resetModal();
         var header, content, footer;
         $('.smh-dialog').css('width', '900px');
@@ -2374,7 +2374,7 @@ LiveStreams.prototype = {
                 config_file +
                 '<tr>' +
                 '<td><div class="title">Playback URLs:</div></td>' +
-                '<td><div class="col-sm-4 col-md-8 col-lg-12"><a style="font-weight: bold;" onclick="smhLS.viewUrls(\'' + name + '\',\'' + stream_name + '\',\'' + bitrate + '\');">View URLs <i style="width: 100%; text-align: center; display: inline; font-size: 12px;" class="fa fa-external-link"></i></a></div></td>' +
+                '<td><div class="col-sm-4 col-md-8 col-lg-12"><a style="font-weight: bold;" onclick="smhLS.viewUrls(\'' + name + '\',\'' + eid + '\');">View URLs <i style="width: 100%; text-align: center; display: inline; font-size: 12px;" class="fa fa-external-link"></i></a></div></td>' +
                 '</tr>' +
                 '</tbody>' +
                 '</table>' +
@@ -2443,7 +2443,7 @@ LiveStreams.prototype = {
         $('#smh-modal .modal-footer').html(footer);
     },
     //View URLs modal
-    viewUrls: function (name, stream_name, bitrate) {
+    viewUrls: function (name, eid) {
         smhLS.resetModal();
         var header, content, footer;
         $('.smh-dialog2').css('width', '700px');
@@ -2454,36 +2454,16 @@ LiveStreams.prototype = {
         $('#smh-modal2').css('z-index', '2000');
         $('#smh-modal').css('z-index', '2');
 
-        var bitrate_arr = bitrate.split(";");
         var hls_urls = '';
         var hlss_urls = '';
-        var stream_name_split = stream_name.split('?');
-        if (bitrate_arr.length > 1) {
-            $.each(bitrate_arr, function (index, value) {
-                var i = index + 1;
-                var stream_name_final = stream_name_split[0] + i;
-                hls_urls += '<tr>' +
-                        '<td style="width: 100px;"><div class="title">HLS URL (HTTP) ' + i + ':</div></td>' +
-                        '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://wpc.19BC0.taucdn.net/2419BC0/' + sessInfo.pid + '-live/' + stream_name_final + '.m3u8"></div></td>' +
-                        '</tr>';
-                hlss_urls += '<tr>' +
-                        '<td style="width: 100px;"><div class="title">HLS URL (HTTPS) ' + i + ':</div></td>' +
-                        '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/2419BC0/' + sessInfo.pid + '-live/' + stream_name_final + '.m3u8"></div></td>' +
-                        '</tr>';
-            });
-        } else {
-            $.each(bitrate_arr, function (index, value) {
-                var stream_name_final = stream_name_split[0];
-                hls_urls += '<tr>' +
-                        '<td style="width: 100px;"><div class="title">HLS URL (HTTP):</div></td>' +
-                        '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://wpc.19BC0.taucdn.net/2419BC0/' + sessInfo.pid + '-live/' + stream_name_final + '.m3u8"></div></td>' +
-                        '</tr>';
-                hlss_urls += '<tr>' +
-                        '<td style="width: 100px;"><div class="title">HLS URL (HTTPS):</div></td>' +
-                        '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/2419BC0/' + sessInfo.pid + '-live/' + stream_name_final + '.m3u8"></div></td>' +
-                        '</tr>';
-            });
-        }
+        hls_urls += '<tr>' +
+                '<td style="width: 100px;"><div class="title">HLS URL (HTTP):</div></td>' +
+                '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ eid + '/format/applehttp/protocol/http/a.m3u8"></div></td>' +
+                '</tr>';
+        hlss_urls += '<tr>' +
+                '<td style="width: 100px;"><div class="title">HLS URL (HTTPS):</div></td>' +
+                '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ eid + '/format/applehttp/protocol/https/a.m3u8"></div></td>' +
+                '</tr>';
 
         header = '<button type="button" class="close smh-close2" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-remove"></i></span><span class="sr-only">Close</span></button><h4 class="modal-title" id="myModalLabel">' + name + '</h4>';
         $('#smh-modal2 .modal-header').html(header);
@@ -3146,7 +3126,7 @@ LiveStreams.prototype = {
                 config_file +
                 '<tr>' +
                 '<td><div class="title">Playback URLs:</div></td>' +
-                '<td><div class="col-sm-4 col-md-8 col-lg-12"><a style="font-weight: bold;" onclick="smhLS.viewUrls(\'' + name + '\',\'' + streamName + '\',\'' + bitrate + '\');">View URLs <i style="width: 100%; text-align: center; display: inline; font-size: 12px;" class="fa fa-external-link"></i></a></div></td>' +
+                '<td><div class="col-sm-4 col-md-8 col-lg-12"><a style="font-weight: bold;" onclick="smhLS.viewUrls(\'' + name + '\',\'' + id + '\');">View URLs <i style="width: 100%; text-align: center; display: inline; font-size: 12px;" class="fa fa-external-link"></i></a></div></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<td><div class="title">Player:</div></td>' +

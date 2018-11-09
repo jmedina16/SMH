@@ -4200,28 +4200,28 @@ Content.prototype = {
         if (services.mb == '1') {
             hls_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HLS URL (HTTP):</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://wpc.19bc0.taucdn.net/8019BC0/nginxtransmux/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '/index.m3u8"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/applehttp/protocol/http/a.m3u8"></div></td>' +
                     '</tr>';
             hlss_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HLS URL (HTTPS):</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/8019BC0/nginxtransmux/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '/index.m3u8"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/applehttp/protocol/https/a.m3u8"></div></td>' +
                     '</tr>';
             http_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HTTP URL:</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://wpc.19bc0.taucdn.net/8019BC0/content/ec/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/url/protocol/http/a.mp4"></div></td>' +
                     '</tr>';
             https_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HTTPS URL:</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/8019BC0/content/ec/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/url/protocol/https/a.mp4"></div></td>' +
                     '</tr>';
         } else {
             http_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HTTP URL:</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://wpc.19bc0.taucdn.net/8019BC0/content/ec/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="http://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/url/protocol/http/a.mp4"></div></td>' +
                     '</tr>';
             https_urls += '<tr>' +
                     '<td style="width: 100px;"><div class="title">HTTPS URL:</div></td>' +
-                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/8019BC0/content/ec/' + sessInfo.pid + '/' + entry_id + '_' + flavor_id + '_' + version + '.' + format + '"></div></td>' +
+                    '<td><div class="col-sm-4 col-md-8 col-lg-12"><input type="text" class="form-control" value="https://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/'+ entry_id + '/flavorId/' + flavor_id + '/format/url/protocol/https/a.mp4"></div></td>' +
                     '</tr>';
         }
 
