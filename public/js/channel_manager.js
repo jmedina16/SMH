@@ -5354,7 +5354,7 @@ ChannelManager.prototype = {
                 '<td><span style="font-weight: normal;">Access Control Profile:</span></td><td><select class="form-control" id="ac-select" ' + ac_disable + '>' + access_select + '</select></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<td><span style="font-weight: normal;">HLS Playback URL:</span></td><td><input type="text" class="form-control" value="https://secure.streamingmediahosting.com/8019BC0/livehttp/' + sessInfo.pid + '-live/' + id + '/playlist.m3u8"></td>' +
+                '<td><span style="font-weight: normal;">HLS Playback URL:</span></td><td><input type="text" class="form-control" value="https://mediaplatform.streamingmediahosting.com/p/' + sessInfo.pid + '/sp/' + sessInfo.pid + '00/playManifest/entryId/' + id + '/format/applehttp/protocol/https/a.m3u8"></td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>' +
