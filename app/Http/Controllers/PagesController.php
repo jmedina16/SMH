@@ -733,7 +733,7 @@ class PagesController extends Controller {
         $url = 'http://10.5.25.17/index.php/api/accounts/limits/' . $pid . '.json';
         $response = json_decode($this->curl_request($url), true);
         $permissions = explode(",", Session::get("user.permissions"));
-        if (in_array("CONTENT_INGEST_UPLOAD", $permissions) && !$response[0]['storage_limit_100']) {
+        if (in_array("CONTENT_INGEST_UPLOAD", $permissions)) {
             //return view('pages.uploadFW')->with('status', $response);
             return view('pages.upload')->with('status', $response);
         } else {
@@ -747,7 +747,7 @@ class PagesController extends Controller {
         $url = 'http://10.5.25.17/index.php/api/accounts/limits/' . $pid . '.json';
         $response = json_decode($this->curl_request($url), true);
         $permissions = explode(",", Session::get("user.permissions"));
-        if (in_array("CONTENT_INGEST_UPLOAD", $permissions) && !$response[0]['storage_limit_100']) {
+        if (in_array("CONTENT_INGEST_UPLOAD", $permissions)) {
             return view('pages.uploadVR')->with('status', $response);
         } else {
             return view('errors.401');
