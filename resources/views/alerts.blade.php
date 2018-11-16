@@ -25,7 +25,7 @@
     <div class="col-md-12">
         <div class="alert alert-danger">
             <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-            There has been a service disruption on your account: <b>Bandwidth Limit Reached!</b> Please contact your support department for assistance.
+            The following service has reached <b>100%</b> it's limit: <b>Bandwidth</b>
         </div>
     </div>
 </div>
@@ -57,7 +57,7 @@
     <div class="col-md-12">
         <div class="alert alert-danger">
             <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-            There has been a service disruption on your account: <b>Storage Limit Reached!</b> Please contact your support department for assistance.
+            The following service has reached <b>100%</b> it's limit: <b>Storage</b>
         </div>
     </div>
 </div>
@@ -90,7 +90,7 @@
     <div class="col-md-12">
         <div class="alert alert-danger">
             <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-            There has been a service disruption on your account: <b>Transcoding Limit Reached!</b> Please contact your support department for assistance.
+            The following service has reached <b>100%</b> it's limit: <b>Transcoding</b>
         </div>
     </div>
 </div>
