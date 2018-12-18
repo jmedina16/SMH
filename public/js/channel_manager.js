@@ -6958,6 +6958,16 @@ ChannelManager.prototype = {
             }
         });
     },
+    //Reset Modal
+    resetPreviewModal: function () {
+        $('#smh-modal4 .modal-header').empty();
+        $('#smh-modal4 .modal-body').empty();
+        $('#smh-modal4 .modal-footer').empty();
+        $('#smh-modal4 .modal-content').css('min-height', '');
+        $('#smh-modal4 .smh-dialog2').css('width', '');
+        $('#smh-modal4 .modal-body').css('height', '');
+        $('#smh-modal4 .modal-body').css('padding', '15px');
+    },
     //Register actions
     registerActions: function () {
         $('.modal').on('click', '.program-entry', function () {
@@ -6986,6 +6996,11 @@ ChannelManager.prototype = {
             $('#smh-modal').css('z-index', '1000');
             $('#smh-modal3').on('hidden.bs.modal', function (e) {
                 $('body').addClass('modal-open');
+            });
+        });
+        $('#smh-modal4').on('click', '.smh-close', function () {
+            $('#smh-modal4').on('hidden.bs.modal', function (e) {
+                smhCM.resetPreviewModal();
             });
         });
         $('#smh-modal2').on('change', '#thumbUp input[type=file]', function () {
