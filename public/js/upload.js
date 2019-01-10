@@ -74,6 +74,7 @@ Upload.prototype = {
                         var file, filename, sessionID, sessionName, session;
                         var that = this;
                         file = data.files[0];
+                        console.log(data);
                         filename = file.name;
                         sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
                         sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
