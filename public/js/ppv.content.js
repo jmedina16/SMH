@@ -3188,6 +3188,24 @@ PPV.prototype = {
 
             } else {
                 pData = '{"ppvConfig":[{"timezone":"' + timezone + '","countdown":"' + countdown + '"}]}';
+
+                var starttime = moment(startD, ["YYYY-MM-DD hh:mm A"]).format('YYYY-MM-DD HH:mm:ss');
+                var starttime_unix = moment(startD, ["YYYY-MM-DD hh:mm A"]).tz(timezone).format('MM/DD/YYYY HH:mm:ss');
+                var starttime_unix_time = moment(moment(starttime_unix, "MM/DD/YYYY HH:mm:ss").unix() * 1000);
+                var offset = moment.tz.zone(timezone).offset(starttime_unix_time);
+
+                var starttime_utc = moment.utc(starttime).utcOffset(offset).format('YYYY-MM-DD HH:mm:ss');
+                var starttime_utc_unix = moment.utc(starttime_utc).utcOffset(offset);
+                startDate = starttime_utc_unix.unix();
+
+                if (has_end) {
+                    var endtime = moment(endD, ["YYYY-MM-DD hh:mm A"]).format('YYYY-MM-DD HH:mm:ss');
+                    var endtime_utc = moment.utc(endtime).utcOffset(offset).format('YYYY-MM-DD HH:mm:ss');
+                    var endtime_utc_unix = moment.utc(endtime_utc).utcOffset(offset);
+                    endDate = endtime_utc_unix.unix();
+                } else {
+                    endDate = '';
+                }
             }
             var baseEntry;
             baseEntry = new KalturaBaseEntry();
