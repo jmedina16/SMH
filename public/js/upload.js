@@ -49,7 +49,7 @@ Upload.prototype = {
             maxRetries: 5,
             retryTimeout: 500,
             multipart: false,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|tiff|mp4|flv|f4v|m4v|asf|mov|avi|3gp|ogg|mkv|wmv|wma|webm|mpeg|mpg|m1v|m2v|wav|mp3|aac|flac|ac3|zip)$/i,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|tiff|mp4|flv|f4v|m4v|asf|mov|avi|3gp|ogg|mkv|wmv|wma|webm|mpeg|mpg|m1v|m2v|wav|mp3|aac|flac|ac3)$/i,
             singleFileUploads: false,
             maxNumberOfFiles: 10,
             dropZone: $('#dropzone'),
