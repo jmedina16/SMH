@@ -248,7 +248,7 @@
                                         <li class="{{ Request::is('ppv/content')? 'active' : '' }}"><a href="/ppv/content"><i class="fa fa-film"></i> Content</a></li>
                                         <li class="{{ Request::is('ppv/orders')? 'active' : '' }}"><a href="/ppv/orders"><i class="fa fa-list-ul"></i> Orders</a></li>
                                         <li class="{{ Request::is('ppv/affiliates')? 'active' : '' }}"><a href="/ppv/affiliates"><i class="fa fa-users"></i> Affiliates Program</a></li>
-                                        <li><a href="#" id="ppv-guide"><i class="fa fa-exclamation-circle"></i> User Guide</a></li>
+                                        @if (Session::get("user.partnerParentId") === 0)<li><a href="#" id="ppv-guide"><i class="fa fa-exclamation-circle"></i> User Guide</a></li>@endif
                                     </ul>                                  
                                 </li>
                                 @endif

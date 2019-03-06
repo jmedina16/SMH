@@ -40,7 +40,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <div class="header rs-header">Channels <div id="channel-user-guide"><a href="/user_guide/smh_channel_manager_user_guide.pdf" target="_blank">User Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a></div></div>
+                        <div class="header rs-header">Channels @if (Session::get("user.partnerParentId") === 0) <div id="channel-user-guide"><a href="/user_guide/smh_channel_manager_user_guide.pdf" target="_blank">User Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a></div>@endif</div>
                         <div class="rs-right-header"><a href="#" id="refresh" onclick="smhCM.refresh_schedule();"><i class="fa fa-refresh"></i> Refresh</a></div>
                     </div>
                     <div class="box-body">

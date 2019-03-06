@@ -33,7 +33,7 @@
                     </div>
                     <div class="box-body">
                         <div id="help-buttons">
-                            <div style="display: inline-block; float: left;"><button class="btn btn-block bg-olive" onclick="window.open('/help/newticket', '_self')"><i class="fa fa-plus"></i> Open A New Ticket</button></div><div style="display: inline-block; float: left; margin-left: 10px;"><button class="btn btn-block btn-primary" onclick="window.open('http://help.streamingmediahosting.com/tickets.php', '_blank')"><i class="fa fa-check-square-o"></i> Check Ticket Status</button></div>  
+                            <div style="display: inline-block; float: left;"><button class="btn btn-block bg-olive" onclick="window.open('/help/newticket', '_self')"><i class="fa fa-plus"></i> Open A New Ticket</button></div>@if (Session::get("user.partnerParentId") === 0)<div style="display: inline-block; float: left; margin-left: 10px;"><button class="btn btn-block btn-primary" onclick="window.open('http://help.streamingmediahosting.com/tickets.php', '_blank')"><i class="fa fa-check-square-o"></i> Check Ticket Status</button></div>@endif  
                         </div>                                
                         <div class="clear"></div>
                         <div id="help-table"></div>                       

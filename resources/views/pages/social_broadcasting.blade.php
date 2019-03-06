@@ -36,6 +36,7 @@
                         <div class="header">Social Media Platforms</div>
                     </div>
                     <div class="box-body">
+                        @if (Session::get("user.partnerParentId") === 0)
                         <div id="social-guides">
                             <div id="social-guides-text">Use the following guides to connect your social media accounts to the Platform.</div>
                             <div id="social-guides-links">
@@ -45,6 +46,7 @@
                                 <hr>
                             </div>
                         </div>
+                        @endif
                         <form id="config-form" action="">
                             <table class="sn-table" id="yt-table">                               
                                 <tr>
