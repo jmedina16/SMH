@@ -93,8 +93,8 @@ Content.prototype = {
                 }
             ],
             "ajax": {
-                "url": "/api/v1/getEntries",
-                "type": "GET",
+                "url": "/apps/platform/entries.table.php",
+                "type": "POST",
                 "data": function (d) {
                     return $.extend({}, d, {
                         "_token": $('meta[name="csrf-token"]').attr('content'),
