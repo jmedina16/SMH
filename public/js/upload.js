@@ -74,10 +74,22 @@ Upload.prototype = {
                         var file, filename, sessionID, sessionName, session;
                         var that = this;
                         file = data.files[0];
-                        filename = file.name;
+                        filename = file.name;   
+
+                        var fname = file.name.substring(0, file.name.indexOf('.')) + '-10-29-2019-03-06-161409.mp4';
+                        console.log(fname);
+                                        
+                        sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');                                       
                         sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-                        sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
+
                         session = sessionName + sessionID;
+                        console.log('SESSION1: '+session);
+                        
+                        sessionID2 = btoa(fname).replace(/\+|=|\//g, '');                                       
+                        sessionName2= btoa(sessInfo.pid).replace(/\+|=|\//g, '');
+
+                        session2 = sessionName2 + sessionID2;
+                        console.log('SESSION2: '+session2);
 
                         $.getJSON('/server/php/', {
                             file: session,
@@ -159,9 +171,12 @@ Upload.prototype = {
 
                 // Collect some basic file information
                 filename = file.name;
+                
+                var fname = file.name.substring(0, file.name.indexOf('.')) + '-10-29-2019-03-06-161409.mp4';
+                console.log(fname);
 
                 // Get the generated sessionID for this upload
-                sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
+                sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');
                 sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
                 session = sessionName + sessionID;
 
@@ -189,15 +204,18 @@ Upload.prototype = {
                 ac_profile = 0;
                 trans_profile = 0;
                 vr_stereo_mode = null;
-                filesize = data.files[0].size;
-                sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-                sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
+                filesize = data.files[0].size;    
+                
+                var fname = file.name.substring(0, file.name.indexOf('.')) + '-10-29-2019-03-06-161409.mp4';
+                
+                sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');                
+                sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');                
                 session = sessionName + sessionID;
 
                 if (data.entry_details == undefined) {
                     sessData = {
                         file_sess: session,
-                        file_name: $.trim(encodeURIComponent(filename)),
+                        file_name: $.trim(encodeURIComponent(fname)),
                         orig_file_name: $.trim(encodeURIComponent(filename)),
                         file_size: filesize,
                         desc: $.trim(description),
