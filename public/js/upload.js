@@ -81,15 +81,7 @@ Upload.prototype = {
                                         
                         sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');                                       
                         sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-
                         session = sessionName + sessionID;
-                        console.log('SESSION1: '+session);
-                        
-                        sessionID2 = btoa(fname).replace(/\+|=|\//g, '');                                       
-                        sessionName2= btoa(sessInfo.pid).replace(/\+|=|\//g, '');
-
-                        session2 = sessionName2 + sessionID2;
-                        console.log('SESSION2: '+session2);
 
                         $.getJSON('/server/php/', {
                             file: session,
