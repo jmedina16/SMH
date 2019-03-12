@@ -199,5 +199,6 @@
 <script src="/js/jquery.mCustomScrollbar.min.js?v=1" type="text/javascript"></script>
 <script src="/js/jquery.tree.js?v=1" type="text/javascript"></script>
 <script src="/js/bootstrap-toggle.min.js?v=1" type="text/javascript"></script>
+<script src="/js/moment.min.js" type="text/javascript"></script>
 <script src="/js/upload.js?v=1" type="text/javascript"></script>
 @stop
