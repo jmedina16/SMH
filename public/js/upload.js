@@ -75,24 +75,9 @@ Upload.prototype = {
                         var that = this;
                         file = data.files[0];
                         filename = file.name;
-
-                        // Retrieve the file that is about to be sent to nginx
-                        file = files.files[0];
-
-                        var fname = filename.substring(0, filename.indexOf('.')) + '-10-29-' + moment().format('YYYY-MM-DD-HHmmss') + '.mp4';
-
-                        // Get the generated sessionID for this upload
-                        sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');
                         sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
+                        sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
                         session = sessionName + sessionID;
-
-                        // Set the required headers for the nginx upload module
-                        //e.setRequestHeader("Session-ID", session);
-                        data.headers={'Session-ID' : session};
-
-//                        sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-//                        sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
-//                        session = sessionName + sessionID;
 
                         $.getJSON('/server/php/', {
                             file: session,
@@ -169,21 +154,19 @@ Upload.prototype = {
             beforeSend: function (e, files, index, xhr, handler, callback) {
                 var chrome, context, device, file, filename, filesize, ios, sessionID, sessionName, session;
 
-//                // Retrieve the file that is about to be sent to nginx
-//                file = files.files[0];
-//
-//                // Collect some basic file information
-//                filename = file.name;
-//                
-//                var fname = file.name.substring(0, file.name.indexOf('.')) + '-10-29-' + moment().format('YYYY-MM-DD-HHmmss') + '.mp4';
-//
-//                // Get the generated sessionID for this upload
-//                sessionID = $.base64.encode(fname).replace(/\+|=|\//g, '');
-//                sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
-//                session = sessionName + sessionID;
-//
-//                // Set the required headers for the nginx upload module
-//                e.setRequestHeader("Session-ID", session);
+                // Retrieve the file that is about to be sent to nginx
+                file = files.files[0];
+
+                // Collect some basic file information
+                filename = file.name;
+
+                // Get the generated sessionID for this upload
+                sessionID = $.base64.encode(filename).replace(/\+|=|\//g, '');
+                sessionName = $.base64.encode(sessInfo.pid).replace(/\+|=|\//g, '');
+                session = sessionName + sessionID;
+
+                // Set the required headers for the nginx upload module
+                e.setRequestHeader("Session-ID", session);
                 e.setRequestHeader("X-Requested-With", "XMLHttpRequest");
                 e.setRequestHeader("Accept", "*/*");
 
@@ -196,8 +179,6 @@ Upload.prototype = {
                 }
             },
             done: function (e, data) {
-                
-                console.log(data);
                 var sessData, file, filename, orig_filename, description, tags, refid, category, ac_profile, trans_profile, filesize, sessionID, sessionName, session;
                 file = data.files[0];
                 filename = file.name;
