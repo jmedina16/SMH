@@ -22,7 +22,7 @@
     <!-- Main content -->
     <section class="content">
         @include('alerts')
-        <h2 class="page-header">Usage Statistics</h2>
+        <h2 class="page-header">Storage, Data Transfer and Transcoding Usage Statistics</h2>
         <div class="row">
             <div class="col-md-12">
                 <div class="date-wrapper usage-year-picker" style="position: absolute;z-index: 2;right: 50px;top: 104px;">

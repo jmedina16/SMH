@@ -15,17 +15,17 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<!--    <section class="content-header">
         <h1><i class="fa fa-toggle-right"></i> OTT Manager</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">OTT Manager</li>
         </ol>
-    </section>
+    </section>-->
     <!-- Main content -->
     <section class="content">
         @include('alerts')
-        <div class="row">
+<!--        <div class="row">
             <div class="col-md-12">
                 <div id="page-header-wrapper">  
                     <div id="page-header-body">
@@ -35,12 +35,12 @@
                     </div>                      
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <div class="header rs-header">Channels @if (Session::get("user.partnerParentId") === 0) <div id="channel-user-guide"><a href="/user_guide/smh_channel_manager_user_guide.pdf" target="_blank">User Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a></div>@endif</div>
+                        <div class="header rs-header">Channel Manager - Create your own 24-7 online TV channel. @if (Session::get("user.partnerParentId") === 0) <div id="channel-user-guide"><a href="/user_guide/smh_channel_manager_user_guide.pdf" target="_blank">User Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a></div>@endif</div>
                         <div class="rs-right-header"><a href="#" id="refresh" onclick="smhCM.refresh_schedule();"><i class="fa fa-refresh"></i> Refresh</a></div>
                     </div>
                     <div class="box-body">

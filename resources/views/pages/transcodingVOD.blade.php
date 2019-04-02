@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <div class="header rs-header">Profiles</div>
+                        <div class="header rs-header">Transcoding - Convert your content to 1080p, 720p, 540p, and more.</div>
                         <div class="rs-right-header"><a href="#" id="refresh" onclick="smhTrans.getTransProfiles();"><i class="fa fa-refresh"></i> Refresh</a></div>
                     </div>
                     <div class="box-body">

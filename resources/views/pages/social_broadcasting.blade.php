@@ -8,17 +8,17 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<!--    <section class="content-header">
         <h1><i class="fa fa-users"></i> Social Broadcasting</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Social Broadcasting</li>
         </ol>
-    </section>
+    </section>-->
     <!-- Main content -->
     <section class="content">
         @include('alerts')
-        <div class="row">
+<!--        <div class="row">
             <div class="col-md-12">
                 <div id="page-header-wrapper">  
                     <div id="page-header-body">
@@ -28,25 +28,14 @@
                     </div>                      
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <div class="header">Social Media Platforms</div>
+                        <div class="header">Social Media Platforms - Connect to your favorite social media platforms.</div>
                     </div>
                     <div class="box-body">
-                        @if (Session::get("user.partnerParentId") === 0)
-                        <div id="social-guides">
-                            <div id="social-guides-text">Use the following guides to connect your social media accounts to the Platform.</div>
-                            <div id="social-guides-links">
-                                <a href="/user_guide/yt_setup_guide.pdf" target="_blank">YouTube Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a><br>
-<!--                                <a href="/user_guide/fb_setup_guide_v2.pdf" target="_blank">Facebook Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a><br>-->
-                                <a href="/user_guide/twch_setup_guide.pdf" target="_blank">Twitch Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a>
-                                <hr>
-                            </div>
-                        </div>
-                        @endif
                         <form id="config-form" action="">
                             <table class="sn-table" id="yt-table">                               
                                 <tr>
@@ -144,6 +133,17 @@
                                 </tr> 
                             </table>-->
                         </form>
+                        @if (Session::get("user.partnerParentId") === 0)
+                        <div id="social-guides">
+                            <hr>
+                            <div id="social-guides-text">Use the following guides to connect your social media accounts to the Platform.</div>
+                            <div id="social-guides-links">
+                                <a href="/user_guide/yt_setup_guide.pdf" target="_blank">YouTube Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a><br>
+<!--                                <a href="/user_guide/fb_setup_guide_v2.pdf" target="_blank">Facebook Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a><br>-->
+                                <a href="/user_guide/twch_setup_guide.pdf" target="_blank">Twitch Integration Guide <i class="fa fa-external-link" style="width: 100%; text-align: center; display: inline; font-size: 12px;"></i></a>
+                            </div>
+                        </div>
+                        @endif                        
                     </div>
                 </div>
             </div>

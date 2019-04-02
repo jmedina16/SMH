@@ -166,6 +166,19 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>       
+                        @if (Session::get("user.trans_vod") == 1 && in_array("TRANSCODING_BASE", $permissions))
+                        <li class="{{ Request::is('transcoding/vod') | Request::is('transcoding/live') ? 'active' : '' }}">
+                            <a href="#">
+                                <i class="fa fa-film"></i>
+                                <span style="position: relative; top: -2px;">Transcoding</span>
+                                <span class="fa fa-angle-left pull-right"></span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="{{ Request::is('transcoding/vod') ? 'active' : '' }}"><a href="/transcoding/vod"><i class="fa fa-cog"></i> VOD Transcoding</a></li>
+                                <li class="{{ Request::is('transcoding/live') ? 'active' : '' }}"><a href="/transcoding/live"><i class="fa fa-cog"></i> Live Transcoding</a></li>
+                            </ul>
+                        </li>
+                        @endif                         
                         @if (in_array("CONTENT_MANAGE_BASE", $permissions))
                         <li class="{{ Request::is('content') ? 'active' : '' }}">
                             <a href="/content">
@@ -174,30 +187,6 @@
                             </a>
                         </li>
                         @endif
-                        @if (in_array("LIVE_STREAM_ADD", $permissions) || in_array("LIVE_STREAM_UPDATE", $permissions) || in_array("CONTENT_MANAGE_METADATA", $permissions) || in_array("CONTENT_MANAGE_DELETE", $permissions) || in_array("CONTENT_MANAGE_ACCESS_CONTROL", $permissions) || in_array("CONTENT_MANAGE_THUMBNAIL", $permissions) || in_array("ANALYTICS_BASE", $permissions))
-                        <li class="{{ Request::is('livestream') ? 'active' : '' }}">
-                            <a href="/livestream">
-                                <i class="fa fa-wifi"></i>
-                                <span style="position: relative; top: -2px;">Live Stream</span>
-                            </a>
-                        </li>
-                        @endif
-                        @if (Session::get("user.sn") == 1)
-                        <li class="{{ Request::is('social_broadcasting') ? 'active' : '' }}">
-                            <a href="/social_broadcasting">
-                                <i class="fa fa-users"></i>
-                                <span style="position: relative; top: -2px;">Social Broadcasting</span>
-                            </a>
-                        </li>                       
-                        @endif
-                        @if (Session::get("user.cm") == 1)
-                        <li class="{{ Request::is('channel_manager') ? 'active' : '' }}">
-                            <a href="/channel_manager">
-                                <i class="fa fa-toggle-right"></i>
-                                <span style="position: relative; top: -2px;">OTT Manager</span>
-                            </a>
-                        </li>                       
-                        @endif
                         @if (in_array("STUDIO_BASE", $permissions))
                         <li class="{{ Request::is('players') ? 'active' : '' }}">
                             <a href="/players">
@@ -205,20 +194,12 @@
                                 <span>Players</span>
                             </a>
                         </li>
-                        @endif
-                        @if (in_array("PLAYLIST_BASE", $permissions))
-                        <li class="{{ Request::is('playlists') ? 'active' : '' }}">
-                            <a href="/playlists">
-                                <i class="fa fa-list"></i>
-                                <span style="position: relative; top: -3px;">Playlists</span>
-                            </a>
-                        </li>
-                        @endif
-                        @if (in_array("CONTENT_MANAGE_BASE", $permissions))
-                        <li class="{{ Request::is('categories') ? 'active' : '' }}">
-                            <a href="/categories">
-                                <i class="fa fa-th"></i>
-                                <span style="position: relative; top: -3px;">Categories</span>
+                        @endif                        
+                        @if (in_array("LIVE_STREAM_ADD", $permissions) || in_array("LIVE_STREAM_UPDATE", $permissions) || in_array("CONTENT_MANAGE_METADATA", $permissions) || in_array("CONTENT_MANAGE_DELETE", $permissions) || in_array("CONTENT_MANAGE_ACCESS_CONTROL", $permissions) || in_array("CONTENT_MANAGE_THUMBNAIL", $permissions) || in_array("ANALYTICS_BASE", $permissions))
+                        <li class="{{ Request::is('livestream') ? 'active' : '' }}">
+                            <a href="/livestream">
+                                <i class="fa fa-wifi"></i>
+                                <span style="position: relative; top: -2px;">Live Stream</span>
                             </a>
                         </li>
                         @endif
@@ -297,29 +278,41 @@
                                 @endif
                             </ul>
                         </li>   
-                        @if (Session::get("user.trans_vod") == 1 && in_array("TRANSCODING_BASE", $permissions))
-                        <li class="{{ Request::is('transcoding/vod') | Request::is('transcoding/live') ? 'active' : '' }}">
-                            <a href="#">
-                                <i class="fa fa-film"></i>
-                                <span style="position: relative; top: -2px;">Transcoding</span>
-                                <span class="fa fa-angle-left pull-right"></span>
+                        @if (in_array("CONTENT_INGEST_UPLOAD", $permissions) && !$response[0]['storage_limit_100'])
+                        <li class="{{ Request::is('ingest') ? 'active' : '' }}">
+                            <a href="/ingest">
+                                <i class="glyphicon glyphicon-cloud-upload"></i>
+                                <span style="position: relative; top: -3px;">Upload</span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li class="{{ Request::is('transcoding/vod') ? 'active' : '' }}"><a href="/transcoding/vod"><i class="fa fa-cog"></i> VOD Transcoding</a></li>
-                                <li class="{{ Request::is('transcoding/live') ? 'active' : '' }}"><a href="/transcoding/live"><i class="fa fa-cog"></i> Live Transcoding</a></li>
-                            </ul>
-                        </li>
-                        @endif 
-                        @if (Session::get("user.vc") == 1)
-                        <li class="{{ Request::is('video_chat') ? 'active' : '' }}">
-                            <a href="/video_chat">
-                                <i class="fa fa-video-camera"></i>
-                                <span>Video Chat</span>
+                        </li>  
+                        @endif                        
+                        @if (Session::get("user.sn") == 1)
+                        <li class="{{ Request::is('social_broadcasting') ? 'active' : '' }}">
+                            <a href="/social_broadcasting">
+                                <i class="fa fa-users"></i>
+                                <span style="position: relative; top: -2px;">Social Broadcasting</span>
                             </a>
-                        </li>
+                        </li>                       
+                        @endif
+                        @if (Session::get("user.cm") == 1)
+                        <li class="{{ Request::is('channel_manager') ? 'active' : '' }}">
+                            <a href="/channel_manager">
+                                <i class="fa fa-toggle-right"></i>
+                                <span style="position: relative; top: -2px;">Channel Manager</span>
+                            </a>
+                        </li>                       
                         @endif
                         @if (in_array("ANALYTICS_BASE", $permissions))
-                        <li class="treeview {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') || Request::is('historical_stats') ? 'active' : '' }}">
+                        <li class="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'active' : '' }}">
+                            <a href="#"><i class="fa fa-line-chart"></i> Player Statistics <span class="fa fa-angle-left pull-right"></span></a>
+                            <ul class="treeview-menu {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'menu-open' : '' }}" style="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'display: block;' : 'display: none;' }}">
+                                <li class="{{ Request::is('player_stats/content_reports')? 'active' : '' }}"><a href="/player_stats/content_reports"><i class="fa fa-line-chart"></i> Content Reports</a></li>
+                                <li class="{{ Request::is('player_stats/geo_distribution')? 'active' : '' }}"><a href="/player_stats/geo_distribution"><i class="fa fa-line-chart"></i> Geographic Distribution</a></li>
+                                <li class="{{ Request::is('player_stats/system_reports')? 'active' : '' }}"><a href="/player_stats/system_reports"><i class="fa fa-line-chart"></i> System Reports</a></li>
+                                <li class="{{ Request::is('player_stats/live_reports')? 'active' : '' }}"><a href="/player_stats/live_reports"><i class="fa fa-line-chart"></i> Live Reports</a></li>
+                            </ul>
+                        </li>                        
+<!--                        <li class="treeview {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') || Request::is('historical_stats') ? 'active' : '' }}">
                             <a href="#">
                                 <i class="fa fa-pie-chart"></i> 
                                 <span style="position: relative; top: -3px;">Analytics</span>
@@ -337,15 +330,31 @@
                                     </ul>
                                 </li>
                             </ul>
+                        </li>-->
+                        @endif                        
+                        @if (in_array("PLAYLIST_BASE", $permissions))
+                        <li class="{{ Request::is('playlists') ? 'active' : '' }}">
+                            <a href="/playlists">
+                                <i class="fa fa-list"></i>
+                                <span style="position: relative; top: -3px;">Playlists</span>
+                            </a>
                         </li>
                         @endif
-                        @if (in_array("CONTENT_INGEST_UPLOAD", $permissions) && !$response[0]['storage_limit_100'])
-                        <li class="{{ Request::is('ingest') ? 'active' : '' }}">
-                            <a href="/ingest">
-                                <i class="glyphicon glyphicon-cloud-upload"></i>
-                                <span style="position: relative; top: -3px;">Upload</span>
+                        @if (in_array("CONTENT_MANAGE_BASE", $permissions))
+                        <li class="{{ Request::is('categories') ? 'active' : '' }}">
+                            <a href="/categories">
+                                <i class="fa fa-th"></i>
+                                <span style="position: relative; top: -3px;">Categories</span>
                             </a>
-                        </li>  
+                        </li>
+                        @endif  
+                        @if (Session::get("user.vc") == 1)
+                        <li class="{{ Request::is('video_chat') ? 'active' : '' }}">
+                            <a href="/video_chat">
+                                <i class="fa fa-video-camera"></i>
+                                <span>Video Chat</span>
+                            </a>
+                        </li>
                         @endif
                         <li class="{{ Request::is('support_tickets') ? 'active' : '' }}">
                             <a href="/help">
@@ -354,8 +363,10 @@
                                 <span class="fa fa-angle-left pull-right"></span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="{{ Request::is('support_tickets')? 'active' : '' }}"><a href="/support_tickets"><i class="fa fa-ticket"></i> Support Tickets</a></li>
-                                <li>
+                                <li><a href="https://mediaplatform.streamingmediahosting.com/user_guide/SMH_User_Guides.zip"><i class="fa fa-question-circle"></i> Get Started</a></li>
+                                <li class="{{ Request::is('support_tickets')? 'active' : '' }}"><a href="/support_tickets"><i class="fa fa-ticket"></i> Open a Ticket</a></li>
+                                <li><a href="#" id="speed-test"><i class="fa fa-rocket"></i> Speed Test</a></li>
+<!--                                <li>
                                     <a href="#">
                                         <i class="fa fa-wrench"></i> <span>Tools</span>
                                         <span class="fa fa-angle-left pull-right"></span>
@@ -366,7 +377,7 @@
                                         <li><a href="#" onclick="smhMain.portTest();"><i class="fa fa-circle-o"></i> Port Test</a></li>
                                         <li><a href="#" id="flash-support"><i class="fa fa-toggle-right"></i> Flash Test</a></li>
                                     </ul>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>  
                     </ul>

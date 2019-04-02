@@ -11,17 +11,17 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<!--    <section class="content-header">
         <h1><i class="fa fa-play"></i> Players</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Players</li>
         </ol>
-    </section>
+    </section>-->
     <!-- Main content -->
     <section class="content">
         @include('alerts')
-        <div class="row">
+<!--        <div class="row">
             <div class="col-md-12">
                 <div id="page-header-wrapper">  
                     <div id="page-header-body">
@@ -31,12 +31,12 @@
                     </div>                      
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-12">
                 <div class="box" style="margin-bottom: 80px;">
                     <div class="box-header">
-                        <div class="header rs-header">Players</div>
+                        <div class="header rs-header">Players - Control player size, color, fonts, and branding. Add or remove buttons, enable subtitles, sharing, and more.</div>
                         <div class="rs-right-header"><a href="#" id="refresh" onclick="smhPlayers.getPlayers();"><i class="fa fa-refresh"></i> Refresh</a></div>
                     </div>
                     <div class="box-body">

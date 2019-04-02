@@ -13,17 +13,17 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<!--    <section class="content-header">
         <h1><i class="fa fa-wifi"></i> Live Stream</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Live Stream</li>
         </ol>
-    </section>
+    </section>-->
     <!-- Main content -->
     <section class="content">
         @include('alerts')
-        <div class="row">
+<!--        <div class="row">
             <div class="col-md-12">
                 <div id="page-header-wrapper">  
                     <div id="page-header-body">
@@ -33,12 +33,12 @@
                     </div>                      
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-12">
                 <div class="box" id="box-wrapper">
                     <div class="box-header">
-                        <div class="header rs-header">Live Streams</div>
+                        <div class="header rs-header">Live Streams - Create unlimited live publishing points.</div>
                         <div class="rs-right-header"><a href="#" id="refresh" onclick="smhLS.getLiveStreams();"><i class="fa fa-refresh"></i> Refresh</a></div>
                     </div>
                     <div class="box-body" id="livestream-table-wrapper">
