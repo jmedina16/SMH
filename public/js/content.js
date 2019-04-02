@@ -139,7 +139,7 @@ Content.prototype = {
                     "width": "177px"
                 },
                 {
-                    "title": "<span style='float: left;'><div class='data-break'>ID</div></span>",
+                    "title": "<span style='float: left;'><div class='data-break'>Entry ID</div></span>",
                     "width": "177px"
                 },
                 {
