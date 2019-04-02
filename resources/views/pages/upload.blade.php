@@ -17,7 +17,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="glyphicon glyphicon-cloud-upload"></i> Upload -<span style="font-size: 13px; font-weight: bold;"> Quickly upload any file type - video, audio, or images. Customize your uploads by modifying the metadata, add them directly to categories, or use specific Access Control or Transcoding Profiles.</span></h1>
+        <h1><i class="glyphicon glyphicon-cloud-upload"></i> Upload -<span style="font-size: 15px; font-weight: bold;"> Quickly upload any file type - video, audio, or images. Customize your uploads by modifying the metadata, add them directly to categories, or use specific Access Control or Transcoding Profiles.</span></h1>
 <!--        <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Upload</li>

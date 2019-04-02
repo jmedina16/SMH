@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('css') 
-<link href="/html5/html5lib/v2.55/kWidget/onPagePlugins/miroSubsOnPage/mirosubs/media/css/mirosubs-widget.css?v=1" rel="stylesheet">
+<link href="/html5/html5lib/v2.66/kWidget/onPagePlugins/miroSubsOnPage/mirosubs/media/css/mirosubs-widget.css?v=1" rel="stylesheet">
 <link href="/css/jquery.mCustomScrollbar.css?v=1" rel="stylesheet"> 
 <link href="/css/responsive.dataTables.min.css?v=1" rel="stylesheet"> 
 <link href="/css/morris.css?v=1" rel="stylesheet"> 
@@ -21,6 +21,11 @@
             <li class="active">Content</li>
         </ol>
     </section>-->
+    @if (Session::get("user.id") == 13523)
+    <section class="content-header">
+        <div class="row" style="text-align: center;"><a href="http://www.avid.com/" target="_blank"><img src="/img/avid_connect.jpg" width="635"></a></div>
+    </section>
+    @endif    
     <!-- Main content -->
     <section class="content">
         @include('alerts')

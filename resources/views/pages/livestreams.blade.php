@@ -20,6 +20,11 @@
             <li class="active">Live Stream</li>
         </ol>
     </section>-->
+    @if (Session::get("user.id") == 13523)
+    <section class="content-header">
+        <div class="row" style="text-align: center;"><a href="http://www.avid.com/" target="_blank"><img src="/img/avid_connect.jpg" width="635"></a></div>
+    </section>
+    @endif    
     <!-- Main content -->
     <section class="content">
         @include('alerts')
