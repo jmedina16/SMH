@@ -312,7 +312,7 @@
                                 <li class="{{ Request::is('player_stats/live_reports')? 'active' : '' }}"><a href="/player_stats/live_reports"><i class="fa fa-line-chart"></i> Live Reports</a></li>
                             </ul>
                         </li>                        
-<!--                        <li class="treeview {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') || Request::is('historical_stats') ? 'active' : '' }}">
+                        <li class="treeview {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') || Request::is('historical_stats') ? 'active' : '' }}">
                             <a href="#">
                                 <i class="fa fa-pie-chart"></i> 
                                 <span style="position: relative; top: -3px;">Analytics</span>
@@ -330,7 +330,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>-->
+                        </li>
                         @endif                        
                         @if (in_array("PLAYLIST_BASE", $permissions))
                         <li class="{{ Request::is('playlists') ? 'active' : '' }}">
