@@ -113,12 +113,13 @@ class UserAuth {
                     $vr_account = 0;
                     $social_network = 0;
                     $channel_manager = 0;
+                    $streaming_stats = 0;
                 } else {
                     $reseller = (int) $result->portal_reseller;
                     $video_chat = (int) $result->streaming_live_chat;
                     $streaming_mobile = (int) $result->streaming_mobile;
                     $transcoding_live = (int) $result->transcoding_live;
-                    $transcoding_vod = ((int) $result->transcoding_vod && !(int) $result2[0]->transcoding_limit_100)? 1 : 0;
+                    $transcoding_vod = ((int) $result->transcoding_vod && !(int) $result2[0]->transcoding_limit_100) ? 1 : 0;
                     $transcoding_vod_raw = (int) $result->transcoding_vod;
                     $pay_per_view = (int) $result->pay_per_view;
                     $membership = (int) $result->membership;
@@ -128,6 +129,7 @@ class UserAuth {
                     $vr_account = (int) $result->vr_account;
                     $social_network = (int) $result->social_network;
                     $channel_manager = (int) $result->channel_manager;
+                    $streaming_stats = (int) $result->streaming_stats;
                 }
 
                 $host = Request::getHost();
@@ -166,6 +168,7 @@ class UserAuth {
                             'cl' => $use_custom_layout,
                             'sn' => $social_network,
                             'cm' => $channel_manager,
+                            'ss' => $streaming_stats,
                             'tricaster' => $tricaster,
                             'permissions' => $permissions,
                             'partnerParentId' => $partnerParentId
@@ -366,6 +369,7 @@ class UserAuth {
                         'cl' => $use_custom_layout,
                         'sn' => $social_network,
                         'cm' => $channel_manager,
+                        'ss' => $streaming_stats,
                         'tricaster' => $tricaster,
                         'permissions' => $permissions,
                         'partnerParentId' => $partnerParentId
