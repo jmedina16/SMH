@@ -302,16 +302,7 @@
                             </a>
                         </li>                       
                         @endif
-                        @if (in_array("ANALYTICS_BASE", $permissions))
-                        <li class="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'active' : '' }}">
-                            <a href="#"><i class="fa fa-line-chart"></i> Player Statistics <span class="fa fa-angle-left pull-right"></span></a>
-                            <ul class="treeview-menu {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'menu-open' : '' }}" style="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'display: block;' : 'display: none;' }}">
-                                <li class="{{ Request::is('player_stats/content_reports')? 'active' : '' }}"><a href="/player_stats/content_reports"><i class="fa fa-line-chart"></i> Content Reports</a></li>
-                                <li class="{{ Request::is('player_stats/geo_distribution')? 'active' : '' }}"><a href="/player_stats/geo_distribution"><i class="fa fa-line-chart"></i> Geographic Distribution</a></li>
-                                <li class="{{ Request::is('player_stats/system_reports')? 'active' : '' }}"><a href="/player_stats/system_reports"><i class="fa fa-line-chart"></i> System Reports</a></li>
-                                <li class="{{ Request::is('player_stats/live_reports')? 'active' : '' }}"><a href="/player_stats/live_reports"><i class="fa fa-line-chart"></i> Live Reports</a></li>
-                            </ul>
-                        </li>                        
+                        @if (in_array("ANALYTICS_BASE", $permissions))                    
                         <li class="treeview {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') || Request::is('historical_stats') ? 'active' : '' }}">
                             <a href="#">
                                 <i class="fa fa-pie-chart"></i> 
@@ -319,7 +310,9 @@
                                 <span class="fa fa-angle-left pull-right"></span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="{{ Request::is('historical_stats')? 'active' : '' }}"><a href="/historical_stats"><i class="fa fa-area-chart"></i> Streaming Statistics</a></li>
+                                @if (Session::get("user.ss") == 1)
+                                <li class="{{ Request::is('historical_stats')? 'active' : '' }}"><a href="/historical_stats"><i class="fa fa-area-chart"></i> Streaming Statistics</a></li
+                                @endif
                                 <li class="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'active' : '' }}">
                                     <a href="#"><i class="fa fa-line-chart"></i> Player Statistics <span class="fa fa-angle-left pull-right"></span></a>
                                     <ul class="treeview-menu {{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'menu-open' : '' }}" style="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'display: block;' : 'display: none;' }}">
