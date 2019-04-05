@@ -311,7 +311,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 @if (Session::get("user.ss") == 1)
-                                <li class="{{ Request::is('historical_stats')? 'active' : '' }}"><a href="/historical_stats"><i class="fa fa-area-chart"></i> Streaming Statistics</a></li
+                                <li class="{{ Request::is('historical_stats')? 'active' : '' }}"><a href="/historical_stats"><i class="fa fa-area-chart"></i> Streaming Statistics</a></li>
                                 @endif
                                 <li class="{{ Request::is('player_stats/content_reports') || Request::is('player_stats/geo_distribution') || Request::is('player_stats/system_reports') || Request::is('player_stats/live_reports') ? 'active' : '' }}">
                                     <a href="#"><i class="fa fa-line-chart"></i> Player Statistics <span class="fa fa-angle-left pull-right"></span></a>
