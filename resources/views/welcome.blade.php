@@ -39,10 +39,15 @@
                                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                     </div>
                                 </div>
-                                <div class="form-group last">
-                                    <div class="col-sm-offset-8 col-sm-9">
+                                <div class="form-group text-right">
+                                    <div class="col-sm-12">
                                         <div id="loading"><img height="20px" src="/img/loading.gif"></div>
                                         <button type="button" id="login" class="btn btn-primary btn-sm">Sign in</button>
+                                    </div>
+                                </div>
+                                <div class="form-group last text-right">
+                                    <div class="col-sm-12">
+                                        <a href="https://streamingmediahosting.com/password-reset" target="_blank">Forgot Password?</a>
                                     </div>
                                 </div>
                             </form>
