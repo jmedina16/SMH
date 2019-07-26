@@ -1688,6 +1688,24 @@ Players.prototype = {
                 '</div>' +
                 '</div>' +
                 '</div>' +
+                
+                
+                '<div class="panel panel-default">' +
+                '<div class="panel-heading">' +
+                '<h4 class="panel-title">' +
+                '<a class="accordion-toggle pluginLabel" data-toggle="collapse" href="#collapseResumePlayback">' +
+                'Resume Playback' +
+                '<i class="indicator fa fa-caret-right"></i><div class="checkbox pull-right"><input type="checkbox" style="margin-right: 5px" id="resume-playback"></div></a>' +
+                '</h4>' +
+                '</div>' +
+                '<div id="collapseResumePlayback" class="panel-collapse collapse">' +
+                '<div class="panel-body">' +
+                'Remembers position in video, to resume playback later.<br /><br />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                
+                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
