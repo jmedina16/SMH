@@ -2419,6 +2419,15 @@ Players.prototype = {
             } else {
                 $('#playback-rate').prop("checked", false);
             }
+            
+            if (flashvars['resumePlayback.plugin']) {
+                if (!$('#smh-modal3 #resume-playback').is(':checked')) {
+                    $('#smh-modal3 #resume-playback').click();
+                }
+            } else {
+                $('#resume-playback').prop("checked", false);
+            }
+            
             if (flashvars['closedCaptions.plugin']) {
                 (flashvars['closedCaptions.displayCaptions']) ? $('#cap-display').prop("checked", true) : $('#cap-display').prop("checked", false);
                 $('#smh-modal3 #cap_textcolor').val(flashvars['closedCaptions.fontColor']);
@@ -3892,6 +3901,13 @@ Players.prototype = {
                 "defaultSpeed": flashvars['playbackRateSelector.defaultSpeed']
             }
         }
+        
+        if (flashvars['resumePlayback.plugin']) {
+            plugins['resumePlayback'] = {
+                "plugin": true,
+                "iframeHTML5Js1": '{onPagePluginPath}/resumePlayback/js/resume.js'
+            }
+        }        
 
         if (flashvars['closedCaptions.plugin']) {
             plugins['closedCaptions'] = {
@@ -4898,6 +4914,19 @@ Players.prototype = {
             }
         });
     },
+    resumePlayback: function () {
+        $('#smh-modal3').on('click', '#resume-playback', function (e) {
+            e.stopPropagation();
+            if (this.checked) {
+                flashvars['resumePlayback.plugin'] = true;
+            } else {
+                flashvars['resumePlayback.plugin'] = false;
+            }
+            if (auto_preview) {
+                smhPlayers.refreshPlayer();
+            }
+        });
+    },    
     chromecast: function () {
         $('#smh-modal3').on('click', '#chromecast', function (e) {
             e.stopPropagation();
@@ -6275,6 +6304,7 @@ $(document).ready(function () {
     smhPlayers.playerVolume();
     smhPlayers.controlBar();
     smhPlayers.playbackRate();
+    smhPlayers.resumePlayback();
     smhPlayers.chromecast();
     smhPlayers.related();
     smhPlayers.infoScreen();
