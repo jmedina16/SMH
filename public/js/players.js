@@ -1026,6 +1026,12 @@ Players.prototype = {
                 flashvars['playbackRateSelector.plugin'] = false;
             }
 
+            if (typeof plugins.resumePlayback !== 'undefined') {
+                flashvars['resumePlayback.plugin'] = true;
+            } else {
+                flashvars['resumePlayback.plugin'] = false;
+            }
+
             if (typeof plugins.closedCaptions !== 'undefined') {
                 flashvars['closedCaptions.plugin'] = true;
                 flashvars['closedCaptions.layout'] = plugins.closedCaptions.layout;
@@ -1688,8 +1694,6 @@ Players.prototype = {
                 '</div>' +
                 '</div>' +
                 '</div>' +
-                
-                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
@@ -1704,8 +1708,6 @@ Players.prototype = {
                 '</div>' +
                 '</div>' +
                 '</div>' +
-                
-                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
@@ -2419,7 +2421,7 @@ Players.prototype = {
             } else {
                 $('#playback-rate').prop("checked", false);
             }
-            
+
             if (flashvars['resumePlayback.plugin']) {
                 if (!$('#smh-modal3 #resume-playback').is(':checked')) {
                     $('#smh-modal3 #resume-playback').click();
@@ -2427,7 +2429,7 @@ Players.prototype = {
             } else {
                 $('#resume-playback').prop("checked", false);
             }
-            
+
             if (flashvars['closedCaptions.plugin']) {
                 (flashvars['closedCaptions.displayCaptions']) ? $('#cap-display').prop("checked", true) : $('#cap-display').prop("checked", false);
                 $('#smh-modal3 #cap_textcolor').val(flashvars['closedCaptions.fontColor']);
@@ -3901,13 +3903,13 @@ Players.prototype = {
                 "defaultSpeed": flashvars['playbackRateSelector.defaultSpeed']
             }
         }
-        
+
         if (flashvars['resumePlayback.plugin']) {
             plugins['resumePlayback'] = {
                 "plugin": true,
                 "iframeHTML5Js1": '{onPagePluginPath}/resumePlayback/js/resume.js'
             }
-        }        
+        }
 
         if (flashvars['closedCaptions.plugin']) {
             plugins['closedCaptions'] = {
@@ -4926,7 +4928,7 @@ Players.prototype = {
                 smhPlayers.refreshPlayer();
             }
         });
-    },    
+    },
     chromecast: function () {
         $('#smh-modal3').on('click', '#chromecast', function (e) {
             e.stopPropagation();
