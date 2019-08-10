@@ -5194,6 +5194,10 @@ tr.odd, tr.even {
     margin-bottom: 50px;
 }
 
+#orders-tab #users-buttons{
+    margin-bottom: 19px;
+}
+
 .center-block {float: none !important}
 
 form input.phone_main {
@@ -5255,7 +5259,7 @@ textarea#message{
     .dataTables_wrapper #users-data_length{
         left: 380px !important;
     }
-    .dataTables_wrapper #tickets-data_length, dataTables_wrapper #orders-data_length{
+    .dataTables_wrapper #tickets-data_length, .dataTables_wrapper #orders-data_length{
         left: 385px !important;
     }
     .dataTables_wrapper #subs-data_length{
@@ -7751,11 +7755,16 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::befor
 #acentry-table .dataTables_scrollBody table, #ticketentry-table .dataTables_scrollBody table, #ppv-playlist-table .dataTables_scrollBody table, #mem-playlist-table .dataTables_scrollBody table{
     width: 855px !important;
 }
-#subs-tab #users-buttons, #affiliates-tab #users-buttons, #campaigns-tab #users-buttons, #marketing-tab #users-buttons, #commissions-tab #users-buttons {
+#affiliates-tab #users-buttons, #campaigns-tab #users-buttons, #marketing-tab #users-buttons, #commissions-tab #users-buttons {
     display: inline-block;
     width: 100%;
     margin-bottom: 22px;
     margin-top: 20px;
+}
+#subs-tab #users-buttons {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 22px;
 }
 #affiliate_edit {
     margin-top: 30px;
