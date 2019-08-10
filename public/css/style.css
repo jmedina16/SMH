@@ -5255,10 +5255,10 @@ textarea#message{
     .dataTables_wrapper #users-data_length{
         left: 380px !important;
     }
-    .dataTables_wrapper #tickets-data_length{
+    .dataTables_wrapper #tickets-data_length, dataTables_wrapper #orders-data_length{
         left: 385px !important;
     }
-    .dataTables_wrapper #orders-data_length, .dataTables_wrapper #subs-data_length{
+    .dataTables_wrapper #subs-data_length{
         left: 280px !important;
     }
     .dataTables_wrapper #affiliate-data_length{
@@ -7343,7 +7343,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::befor
     top: -51px;
 }
 
-#tickets-data_wrapper .dataTables_filter{
+#tickets-data_wrapper .dataTables_filter, #orders-data_wrapper .dataTables_filter{
     position: absolute;
     left: 125px;
     top: -51px;
@@ -7751,7 +7751,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::befor
 #acentry-table .dataTables_scrollBody table, #ticketentry-table .dataTables_scrollBody table, #ppv-playlist-table .dataTables_scrollBody table, #mem-playlist-table .dataTables_scrollBody table{
     width: 855px !important;
 }
-#orders-tab #users-buttons, #subs-tab #users-buttons, #affiliates-tab #users-buttons, #campaigns-tab #users-buttons, #marketing-tab #users-buttons, #commissions-tab #users-buttons {
+#subs-tab #users-buttons, #affiliates-tab #users-buttons, #campaigns-tab #users-buttons, #marketing-tab #users-buttons, #commissions-tab #users-buttons {
     display: inline-block;
     width: 100%;
     margin-bottom: 22px;
@@ -7989,7 +7989,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::befor
     left: 360px;
 }
 
-.dataTables_wrapper #orders-data_length, .dataTables_wrapper #subs-data_length{
+.dataTables_wrapper #subs-data_length{
     left: 232px;
 }
 
