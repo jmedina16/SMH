@@ -41,10 +41,10 @@
                         <div class="tab-content no-padding">
                             <div style="position: relative;" id="orders-tab" class="tab-pane active">
                                 <div id="users-buttons">
-                                    <div style="display: inline-block; float: left;">
+                                    <div style="display: inline-block;float: left;position: relative;top: -17px;">
                                         <button class="btn btn-block bg-olive" id="add-order" onclick="smhPPV.addOrder();">Create Order</button>
                                     </div>
-                                    <div style="display: inline-block; float: right;">
+                                    <div style="display: inline-block; float: right;position: relative;top: -17px;">
                                         <div class="pull-left" id="dwnld-csv"><div id="loading"><img height="20px" src="/img/loading.gif"></div><a onclick="smhPPV.exportMetaData('orders')">Export to Excel <img height="20px" src="/img/xls-icon.jpg"></a></div>
                                         <div style="display: inline-block; float: right; margin-top: 7px; margin-right: 10px;"><a href="#" id="refresh" onclick="smhPPV.getOrders();"><i class="fa fa-refresh"></i> Refresh</a></div>
                                     </div>  
