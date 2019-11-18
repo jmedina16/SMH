@@ -133,6 +133,8 @@
                                             <div class="user-header-text">{{addslashes(trim(Session::get("user.userName")))}}</div>
                                             <small>Partner ID</small>
                                             <div class="user-header-text">{{trim(Session::get("user.id"))}}</div>
+                                            <small>API Token</small>
+                                            <div class="user-header-text">{{trim(Session::get("user.apiToken"))}}</div>                                            
                                             <small>Role</small>
                                             <div class="user-header-text">{{ Session::get("user.roleName") }}</div>
                                         </div>
