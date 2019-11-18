@@ -170,7 +170,7 @@ Reseller.prototype = {
         });
     },
     //Edit Account Details
-    editAccount: function (pid, pub_name, desc, admin_name, admin_email) {
+    editAccount: function (pid, pub_name, desc, admin_name, admin_email, api_token) {
         smhMain.resetModal();
         var header, content, footer;
         $('.smh-dialog').css('width', '490px');
@@ -188,6 +188,10 @@ Reseller.prototype = {
                 '<td><b>ID:</b></td>' +
                 '<td>' + pid + '</td>' +
                 '</tr>' +
+                '<tr>' +
+                '<td><b>API Token:</b></td>' +
+                '<td>' + api_token + '</td>' +
+                '</tr>' +                
                 '<tr>' +
                 '<td><b class="required">Business Name:</b></td>' +
                 '<td style="width: 60%;"><input type="text" name="pub_name" id="pub_name" class="form-control" placeholder="Enter business name" value="' + pub_name + '"></td>' +
