@@ -93,6 +93,7 @@ class UserAuth {
                 $phone = $partner_result->phone;
                 $website = $partner_result->website;
                 $partnerParentId = $partner_result->partnerParentId;
+                $apiToken = $partner_result->secret;
 
                 $url = 'http://10.5.25.17/index.php/api/accounts/pid/' . $partnerId . '.json';
                 $url2 = 'http://10.5.25.17/index.php/api/accounts/limits/' . $partnerId . '.json';
@@ -348,6 +349,7 @@ class UserAuth {
                         'ks' => $session,
                         'userName' => $credentials['username'],
                         'id' => $partnerId,
+                        'apiToken' => $apiToken,
                         'roleId' => $roleId,
                         'roleName' => $role_name,
                         'fullName' => $screenName,
