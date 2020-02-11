@@ -64,6 +64,7 @@ Dashboard.prototype = {
                 resize: true,
                 xLabelMargin: 50,
                 parseTime: true,
+                xLabels: "month",
                 yLabelFormat: function (y) {
                     return smhDash.format(y.toFixed(2).toString()) + ' GB';
                 }
@@ -83,6 +84,7 @@ Dashboard.prototype = {
                 resize: true,
                 xLabelMargin: 50,
                 parseTime: true,
+                xLabels: "month",
                 yLabelFormat: function (y) {
                     return smhDash.format(y.toFixed(2).toString()) + ' GB';
                 }
@@ -102,6 +104,7 @@ Dashboard.prototype = {
                 resize: true,
                 xLabelMargin: 50,
                 parseTime: true,
+                xLabels: "month",
                 yLabelFormat: function (y) {
                     return smhDash.format(parseFloat(y).toFixed(2).toString()) + ' min';
                 }
