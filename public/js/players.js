@@ -1708,6 +1708,42 @@ Players.prototype = {
                 '</div>' +
                 '</div>' +
                 '</div>' +
+                
+                '<div class="panel panel-default">' +
+                '<div class="panel-heading">' +
+                '<h4 class="panel-title">' +
+                '<a class="accordion-toggle pluginLabel" data-toggle="collapse" href="#collapseSkipForward">' +
+                'Skip Forward' +
+                '<i class="indicator fa fa-caret-right"></i><div class="checkbox pull-right"><input type="checkbox" style="margin-right: 5px" id="skip-forward"></div></a>' +
+                '</h4>' +
+                '</div>' +
+                '<div id="collapseSkipForward" class="panel-collapse collapse">' +
+                '<div class="panel-body">' +
+                'Skip forward a number of seconds.<br /><br />' +
+                '<span class="pluginLabel">Seconds to skip</span><br />'+
+                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-forward-time" name="skip_forward_time" placeholder="Enter a number" class="form-control" style="width: 125px;" value="" size="33"></div>'+
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                
+                '<div class="panel panel-default">' +
+                '<div class="panel-heading">' +
+                '<h4 class="panel-title">' +
+                '<a class="accordion-toggle pluginLabel" data-toggle="collapse" href="#collapseSkipBackward">' +
+                'Skip Backward' +
+                '<i class="indicator fa fa-caret-right"></i><div class="checkbox pull-right"><input type="checkbox" style="margin-right: 5px" id="skip-backward"></div></a>' +
+                '</h4>' +
+                '</div>' +
+                '<div id="collapseSkipBackward" class="panel-collapse collapse">' +
+                '<div class="panel-body">' +
+                'Skip backward a number of seconds.<br /><br />' +
+                '<span class="pluginLabel">Seconds to skip</span><br />'+
+                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-backward-time" name="skip_backward_time" placeholder="Enter a number" class="form-control" style="width: 125px;" value="" size="33"></div>'+                
+                '</div>' +
+                '</div>' +
+                '</div>' +                
+                
+                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
