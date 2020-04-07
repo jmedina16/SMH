@@ -1032,6 +1032,22 @@ Players.prototype = {
                 flashvars['resumePlayback.plugin'] = false;
             }
 
+            if (typeof plugins.skipForward !== 'undefined') {
+                flashvars['skipForward.plugin'] = true;
+                flashvars['skipForward.iframeHTML5Js1'] = plugins.skipForward.iframeHTML5Js1;
+                flashvars['skipForward.seekTime'] = plugins.skipForward.seekTime;
+            } else {
+                flashvars['skipForward.plugin'] = false;
+            }
+
+            if (typeof plugins.skipBackward !== 'undefined') {
+                flashvars['skipBackward.plugin'] = true;
+                flashvars['skipBackward.iframeHTML5Js1'] = plugins.skipBackward.iframeHTML5Js1;
+                flashvars['skipBackward.seekTime'] = plugins.skipBackward.seekTime;
+            } else {
+                flashvars['skipBackward.plugin'] = false;
+            }
+
             if (typeof plugins.closedCaptions !== 'undefined') {
                 flashvars['closedCaptions.plugin'] = true;
                 flashvars['closedCaptions.layout'] = plugins.closedCaptions.layout;
@@ -1708,7 +1724,6 @@ Players.prototype = {
                 '</div>' +
                 '</div>' +
                 '</div>' +
-                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
@@ -1720,12 +1735,11 @@ Players.prototype = {
                 '<div id="collapseSkipForward" class="panel-collapse collapse">' +
                 '<div class="panel-body">' +
                 'Skip forward a number of seconds.<br /><br />' +
-                '<span class="pluginLabel">Seconds to skip</span><br />'+
-                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-forward-time" name="skip_forward_time" placeholder="Enter a number" class="form-control" value="' + flashvars['skipForward.seekTime'] + '" style="width: 125px;" size="33" disabled></div>'+
+                '<span class="pluginLabel">Seconds to skip</span><br />' +
+                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-forward-time" name="skip_forward_time" placeholder="Enter a number" class="form-control" value="' + flashvars['skipForward.seekTime'] + '" style="width: 125px;" size="33" disabled></div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
-                
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
@@ -1737,13 +1751,11 @@ Players.prototype = {
                 '<div id="collapseSkipBackward" class="panel-collapse collapse">' +
                 '<div class="panel-body">' +
                 'Skip backward a number of seconds.<br /><br />' +
-                '<span class="pluginLabel">Seconds to skip</span><br />'+
-                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-backward-time" name="skip_backward_time" placeholder="Enter a number" class="form-control" value="' + flashvars['skipBackward.seekTime'] + '" style="width: 125px;" size="33" disabled></div>'+                
+                '<span class="pluginLabel">Seconds to skip</span><br />' +
+                '<div style="margin-top:5px; margin-bottom:15px;"><input type="text" id="skip-backward-time" name="skip_backward_time" placeholder="Enter a number" class="form-control" value="' + flashvars['skipBackward.seekTime'] + '" style="width: 125px;" size="33" disabled></div>' +
                 '</div>' +
                 '</div>' +
-                '</div>' +                
-                
-                
+                '</div>' +
                 '<div class="panel panel-default">' +
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
@@ -2465,7 +2477,7 @@ Players.prototype = {
             } else {
                 $('#resume-playback').prop("checked", false);
             }
-            
+
             if (flashvars['skipForward.plugin']) {
                 $('#smh-modal3 #skip-forward-time').val(flashvars['skipForward.seekTime']);
                 if (!$('#smh-modal3 #skip-forward').is(':checked')) {
@@ -2473,8 +2485,8 @@ Players.prototype = {
                 }
             } else {
                 $('#skip-forward').prop("checked", false);
-            }    
-            
+            }
+
             if (flashvars['skipBackward.plugin']) {
                 $('#smh-modal3 #skip-backward-time').val(flashvars['skipBackward.seekTime']);
                 if (!$('#smh-modal3 #skip-backward').is(':checked')) {
@@ -2482,7 +2494,7 @@ Players.prototype = {
                 }
             } else {
                 $('#skip-backward').prop("checked", false);
-            }             
+            }
 
             if (flashvars['closedCaptions.plugin']) {
                 (flashvars['closedCaptions.displayCaptions']) ? $('#cap-display').prop("checked", true) : $('#cap-display').prop("checked", false);
@@ -3965,6 +3977,22 @@ Players.prototype = {
             }
         }
 
+        if (flashvars['skipForward.plugin']) {
+            plugins['skipForward'] = {
+                "plugin": true,
+                "iframeHTML5Js1": '{onPagePluginPath}/skipForward/js/skipForward.js',
+                "seekTime": flashvars['skipForward.seekTime']
+            }
+        }
+
+        if (flashvars['skipBackward.plugin']) {
+            plugins['skipBackward'] = {
+                "plugin": true,
+                "iframeHTML5Js1": '{onPagePluginPath}/skipBackward/js/skipBackward.js',
+                "seekTime": flashvars['skipBackward.seekTime']
+            }
+        }
+
         if (flashvars['closedCaptions.plugin']) {
             plugins['closedCaptions'] = {
                 "plugin": true,
@@ -4595,6 +4623,12 @@ Players.prototype = {
         flashvars['captureThumbnail.plugin'] = false;
         flashvars['captureThumbnail.tooltip'] = 'Capture Thumbnail';
 
+        flashvars['skipForward.plugin'] = false;
+        flashvars['skipForward.seekTime'] = 30;
+
+        flashvars['skipBackward.plugin'] = false;
+        flashvars['skipBackward.seekTime'] = 30;
+
         flashvars['scrubber.plugin'] = true;
 
         flashvars['topBarContainer.plugin'] = true;
@@ -4988,11 +5022,20 @@ Players.prototype = {
             e.stopPropagation();
             if (this.checked) {
                 flashvars['skipForward.plugin'] = true;
+                flashvars['skipForward.iframeHTML5Js1'] = '{onPagePluginPath}/skipForward/js/skipForward.js';
+                flashvars['skipForward.seekTime'] = $('#smh-modal3 #skip-forward-time').val();
                 $('#smh-modal3 #skip-forward-time').removeAttr('disabled');
             } else {
                 flashvars['skipForward.plugin'] = false;
+                delete flashvars['skipForward.iframeHTML5Js1'];
                 $('#smh-modal3 #skip-forward-time').attr('disabled', '');
             }
+            if (auto_preview) {
+                smhPlayers.refreshPlayer();
+            }
+        });
+        $('#smh-modal3').on('change', '#skip-forward-time', function () {
+            flashvars['skipForward.seekTime'] = $('#smh-modal3 #skip-forward-time').val();
             if (auto_preview) {
                 smhPlayers.refreshPlayer();
             }
@@ -5003,16 +5046,25 @@ Players.prototype = {
             e.stopPropagation();
             if (this.checked) {
                 flashvars['skipBackward.plugin'] = true;
+                flashvars['skipBackward.iframeHTML5Js1'] = '{onPagePluginPath}/skipBackward/js/skipBackward.js';
+                flashvars['skipBackward.seekTime'] = $('#smh-modal3 #skip-backward-time').val();
                 $('#smh-modal3 #skip-backward-time').removeAttr('disabled');
             } else {
                 flashvars['skipBackward.plugin'] = false;
+                delete flashvars['skipBackward.iframeHTML5Js1'];
                 $('#smh-modal3 #skip-backward-time').attr('disabled', '');
             }
             if (auto_preview) {
                 smhPlayers.refreshPlayer();
             }
         });
-    },    
+        $('#smh-modal3').on('change', '#skip-backward-time', function () {
+            flashvars['skipBackward.seekTime'] = $('#smh-modal3 #skip-backward-time').val();
+            if (auto_preview) {
+                smhPlayers.refreshPlayer();
+            }
+        });
+    },
     chromecast: function () {
         $('#smh-modal3').on('click', '#chromecast', function (e) {
             e.stopPropagation();
