@@ -1035,6 +1035,7 @@ Players.prototype = {
             if (typeof plugins.skipForward !== 'undefined') {
                 flashvars['skipForward.plugin'] = true;
                 flashvars['skipForward.iframeHTML5Js1'] = plugins.skipForward.iframeHTML5Js1;
+                flashvars['skipForward.iframeHTML5Css'] = plugins.skipForward.iframeHTML5Css;
                 flashvars['skipForward.seekTime'] = plugins.skipForward.seekTime;
             } else {
                 flashvars['skipForward.plugin'] = false;
@@ -1043,6 +1044,7 @@ Players.prototype = {
             if (typeof plugins.skipBackward !== 'undefined') {
                 flashvars['skipBackward.plugin'] = true;
                 flashvars['skipBackward.iframeHTML5Js1'] = plugins.skipBackward.iframeHTML5Js1;
+                flashvars['skipBackward.iframeHTML5Css'] = plugins.skipBackward.iframeHTML5Css;
                 flashvars['skipBackward.seekTime'] = plugins.skipBackward.seekTime;
             } else {
                 flashvars['skipBackward.plugin'] = false;
@@ -3981,6 +3983,7 @@ Players.prototype = {
             plugins['skipForward'] = {
                 "plugin": true,
                 "iframeHTML5Js1": '{onPagePluginPath}/skipForward/js/skipForward.js',
+                "iframeHTML5Css": '{onPagePluginPath}/skipForward/css/skipForward.css',
                 "seekTime": flashvars['skipForward.seekTime']
             }
         }
@@ -3989,6 +3992,7 @@ Players.prototype = {
             plugins['skipBackward'] = {
                 "plugin": true,
                 "iframeHTML5Js1": '{onPagePluginPath}/skipBackward/js/skipBackward.js',
+                "iframeHTML5Css": '{onPagePluginPath}/skipBackward/css/skipBackward.css',
                 "seekTime": flashvars['skipBackward.seekTime']
             }
         }
@@ -5023,11 +5027,13 @@ Players.prototype = {
             if (this.checked) {
                 flashvars['skipForward.plugin'] = true;
                 flashvars['skipForward.iframeHTML5Js1'] = '{onPagePluginPath}/skipForward/js/skipForward.js';
+                flashvars['skipForward.iframeHTML5Css'] = '{onPagePluginPath}/skipForward/css/skipForward.css';
                 flashvars['skipForward.seekTime'] = $('#smh-modal3 #skip-forward-time').val();
                 $('#smh-modal3 #skip-forward-time').removeAttr('disabled');
             } else {
                 flashvars['skipForward.plugin'] = false;
                 delete flashvars['skipForward.iframeHTML5Js1'];
+                delete flashvars['skipForward.iframeHTML5Css'];
                 $('#smh-modal3 #skip-forward-time').attr('disabled', '');
             }
             if (auto_preview) {
@@ -5047,11 +5053,13 @@ Players.prototype = {
             if (this.checked) {
                 flashvars['skipBackward.plugin'] = true;
                 flashvars['skipBackward.iframeHTML5Js1'] = '{onPagePluginPath}/skipBackward/js/skipBackward.js';
+                flashvars['skipBackward.iframeHTML5Css'] = '{onPagePluginPath}/skipBackward/css/skipBackward.css';
                 flashvars['skipBackward.seekTime'] = $('#smh-modal3 #skip-backward-time').val();
                 $('#smh-modal3 #skip-backward-time').removeAttr('disabled');
             } else {
                 flashvars['skipBackward.plugin'] = false;
                 delete flashvars['skipBackward.iframeHTML5Js1'];
+                delete flashvars['skipBackward.iframeHTML5Css'];
                 $('#smh-modal3 #skip-backward-time').attr('disabled', '');
             }
             if (auto_preview) {
