@@ -90,6 +90,7 @@ Route::group(array('domain' => 'devplatform.streamingmediahosting.com'), functio
     Route::get('users', ['middleware' => 'auth', 'uses' => 'PagesController@users']);
     Route::get('roles', ['middleware' => 'auth', 'uses' => 'PagesController@roles']);
     Route::get('support_tickets', ['middleware' => 'auth', 'uses' => 'PagesController@supportTickets']);
+    Route::get('inp_api_calls', ['middleware' => 'auth', 'uses' => 'PagesController@inPAPICalls']);
     Route::get('help/newticket', ['middleware' => 'auth', 'uses' => 'PagesController@newticket']);
     Route::post('help/newticket', ['middleware' => 'auth', 'uses' => 'UserController@submitTicket']);
     Route::get('video_chat', ['middleware' => 'auth', 'uses' => 'PagesController@videoChat']);
