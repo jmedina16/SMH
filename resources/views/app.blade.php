@@ -361,7 +361,7 @@
                                 <li><a href="https://mediaplatform.streamingmediahosting.com/user_guide/SMH_User_Guides.zip"><i class="fa fa-question-circle"></i> Get Started</a></li>
                                 <li class="{{ Request::is('support_tickets')? 'active' : '' }}"><a href="/support_tickets"><i class="fa fa-ticket"></i> Open a Ticket</a></li>
                                 <li><a href="#" id="speed-test"><i class="fa fa-rocket"></i> Speed Test</a></li>
-                                <li><a href="#" id="inp-api-test"><i class="fa fa-rocket"></i> InP API Test</a></li>
+                                <li><a href="/inp_api_calls" id="inp-api-test"><i class="fa fa-rocket"></i> InP API Test</a></li>
 <!--                                <li>
                                     <a href="#">
                                         <i class="fa fa-wrench"></i> <span>Tools</span>
