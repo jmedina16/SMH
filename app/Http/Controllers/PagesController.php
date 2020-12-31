@@ -843,7 +843,7 @@ class PagesController extends Controller {
     }
 
     //InP API Calls Page
-    public function inpAPICalls() {
+    public function inPAPICalls() {
 
         //run the API Calls
         //$pid = Session::get("user.id");
