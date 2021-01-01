@@ -5,7 +5,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-question-circle"></i> Support Tickets</h1>
+        <h1><i class="fa fa-question-circle"></i> InPlayer API Calls</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">InPlayer API Calls</li>
@@ -29,7 +29,50 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <div class="header">API Call Results</div>
+                        <div class="header">API Call Results
+<?php
+
+// set post fields
+$post = [
+    'username' => 'servata@gmail.com',
+    'password' => 'Inplayer123',
+    'grant_type'   => 'password',
+    'client_id' => '3b39b5ab-b5fc-4ba3-b770-73155d20e61f'
+];
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, 'http://staging-v2.inplayer.com/accounts/authenticate');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+$headers = array();
+
+$headers[] = 'Cookie: inplayer_session=ajkr34ga8nn7a9m0bq28fk5h54';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$result = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+curl_close($ch);
+
+//display the results
+
+echo "<br>GH29<pre>";
+print_r(json_decode($result));
+echo "</pre><br>";
+
+?>
+
+
+
+
+
+
+
+</div>
                     </div>
                     <div class="box-body">
                         <div id="help-buttons">
