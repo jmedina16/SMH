@@ -846,10 +846,10 @@ class PagesController extends Controller {
     public function inPAPICalls() {
 
         //run the API Calls
-        //$pid = Session::get("user.id");
-        //$url = 'http://10.5.25.17/index.php/api/accounts/limits/' . $pid . '.json';
-        //$response = json_decode($this->curl_request($url), true);
-        return view('pages.inp_api_calls');
+        $pid = Session::get("user.id");
+        $url = 'http://10.5.25.17/index.php/api/accounts/limits/' . $pid . '.json';
+        $response = json_decode($this->curl_request($url), true);
+        return view('pages.inPAPICalls');
     }
 
     public function players() {
