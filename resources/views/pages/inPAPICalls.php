@@ -55,14 +55,26 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
+} else {
+
+  //get the decoded json array
+  $authAr= json_decode($result,true);
+
+  //store the authentication token in the session
+  $access_token = $authAr['access_token'];
+
+  //dipslay the results
+  echo "<br>GH11<pre>";
+  print_r($access_token);
+  echo "</pre><br>";
+
+
+
+
 }
 curl_close($ch);
 
-//display the results
 
-echo "<br>GH29<pre>";
-print_r(json_decode($result));
-echo "</pre><br>";
 
 ?>
 
