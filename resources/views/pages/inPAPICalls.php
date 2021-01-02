@@ -68,6 +68,24 @@ if (curl_errno($ch)) {
   print_r($access_token);
   echo "</pre><br>";
 
+  //store this value in the Session
+  Session::put('access_token', $access_token);
+
+  //get the value from the session and display it
+  $new_access_token = Session::get('access_token');
+
+  //dipslay the results
+  echo "<br>GH11<pre>";
+  print_r($access_token);
+  echo "</pre><br>";
+
+
+
+
+
+
+
+
 
 
 
