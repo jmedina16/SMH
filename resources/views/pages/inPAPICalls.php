@@ -65,7 +65,7 @@ if (curl_errno($ch)) {
 
   //dipslay the results
   echo "<br>GH11<pre>";
-  print_r($access_token);
+  print_r(json_decode($result,true));
   echo "</pre><br>";
 
   //store this value in the Session
@@ -75,18 +75,52 @@ if (curl_errno($ch)) {
   $new_access_token = Session::get('access_token');
 
   //dipslay the results
-  echo "<br>GH11<pre>";
+  echo "<br>GH12<pre>";
   print_r($access_token);
   echo "</pre><br>";
 
+  //create a new follower account
+
+  // set post fields
+  $post2 = [
+      'full_name' => 'John Follower',
+      'email' => 'john@servata.com',
+      'password'   => 'foobar123',
+      'master_id' => '3b39b5ab-b5fc-4ba3-b770-73155d20e61f',
+      'scopes[0]' => 'inheritance',
+      'methods[12]' => 'true'
+  ];
+
+  $ch2 = curl_init();
+
+  curl_setopt($ch2, CURLOPT_URL, 'https://staging-v2.inplayer.com/accounts/merchants');
+  curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch2, CURLOPT_POST, 1);
+  curl_setopt($ch2, CURLOPT_POSTFIELDS,$post2);
+
+  $headers = array();
+  $headers[] = 'Authorization: Bearer ' .$access_token;
+  $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+  curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers);
+
+  $result2 = curl_exec($ch2);
+  if (curl_errno($ch2)) {
+      echo 'Error:' . curl_error($ch2);
+  } else {
+
+    //get the decoded json array
+    $followerAr= json_decode($result2,true);
+
+    //dipslay the results
+    echo "<br>GH13<pre>";
+    print_r($followerAr);
+    echo "</pre><br>";
+
+  }
 
 
 
-
-
-
-
-
+  curl_close($ch2);
 
 
 }
