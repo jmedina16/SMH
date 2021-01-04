@@ -86,7 +86,7 @@ if (curl_errno($ch)) {
       'full_name' => 'John Follower',
       'email' => 'john@servata.com',
       'password'   => 'foobar123',
-      'master_id' => '3b39b5ab-b5fc-4ba3-b770-73155d20e61f',
+      'master_id' => '3',
       'scopes[0]' => 'inheritance',
       'methods[12]' => 'true'
   ];
