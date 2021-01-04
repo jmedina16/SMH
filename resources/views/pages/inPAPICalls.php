@@ -100,7 +100,7 @@ if (curl_errno($ch)) {
 
   $headers = array();
   $headers[] = 'Authorization: Bearer ' .$access_token;
-  $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+  //$headers[] = 'Content-Type: application/x-www-form-urlencoded';
   curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers);
 
   $result2 = curl_exec($ch2);
