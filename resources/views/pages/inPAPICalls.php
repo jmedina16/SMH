@@ -116,6 +116,19 @@ if (curl_errno($ch)) {
     print_r($followerAr);
     echo "</pre><br>";
 
+    //create an item (asset)
+    
+    //create an access control profile
+
+    //create a ticket
+
+    //display the embed code
+
+
+
+
+
+
   }
 
 
