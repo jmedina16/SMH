@@ -61,8 +61,6 @@ class UserAuth {
         }
 
         if (isset($session) && !empty($session)) {
-            //Get the InP JWT and out it in the session
-            get_inp_jwt();
             $response = explode("'", $session);
             if (!isset($response[1])) {
                 $user = array();
