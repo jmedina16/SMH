@@ -31,7 +31,7 @@
                     <div class="box-header">
                         <div class="header">API Call Results
 <?php
-
+/*
 // set post fields
 $post = [
     'username' => 'servata@gmail.com',
@@ -70,15 +70,18 @@ if (curl_errno($ch)) {
 
   //store this value in the Session
   Session::put('access_token', $access_token);
+*/
+
+  get_inp_jwt();
 
   //get the value from the session and display it
   $new_access_token = Session::get('access_token');
 
   //dipslay the results
   echo "<br>GH12<pre>";
-  print_r($access_token);
+  print_r($new_access_token);
   echo "</pre><br>";
-
+/*
   //create a new follower account
 
   // set post fields
@@ -138,7 +141,7 @@ if (curl_errno($ch)) {
 
 }
 curl_close($ch);
-
+*/
 
 
 ?>
