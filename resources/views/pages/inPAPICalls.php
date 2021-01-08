@@ -143,6 +143,44 @@ if (curl_errno($ch)) {
 curl_close($ch);
 */
 
+//create an item for this follower account
+
+// set post fields
+  $post2 = [
+      'item_type' => 'kaltura_asset',
+      'content' => '',
+      'title'   => 'Test01PPV',
+      'access_control_type_id' => '1',
+      'metadata' => ['first ppv test video', 'second piece of metadata'],
+      'external_asset_id' => '0_i9n0vuul',
+      'template_id' => 1
+  ];
+
+  $ch2 = curl_init();
+
+  curl_setopt($ch2, CURLOPT_URL, 'https://staging-v2.inplayer.com/v2/items');
+  curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch2, CURLOPT_POST, 1);
+  curl_setopt($ch2, CURLOPT_POSTFIELDS,$post2);
+
+  $headers = array();
+  $headers[] = 'Authorization: Bearer ' .$new_access_token;
+  curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers);
+
+  $result2 = curl_exec($ch2);
+  if (curl_errno($ch2)) {
+      echo 'Error:' . curl_error($ch2);
+  } else {
+
+    //get the decoded json array
+    $itemAr= json_decode($result2,true);
+
+    //dipslay the results
+    echo "<br>GH14<pre>";
+    print_r($itemAr);
+    echo "</pre><br>";
+ }
+
 
 ?>
 
