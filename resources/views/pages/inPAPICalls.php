@@ -166,7 +166,7 @@ kWidget.embed({
 });
 </script>',
       'title'   => 'Test01PPV',
-      'access_control_type_id' => 2,    
+      'access_control_type_id' => 1,    
       'external_asset_id' => '0_3hg81dln',
       'template_id' => 5
   ];
