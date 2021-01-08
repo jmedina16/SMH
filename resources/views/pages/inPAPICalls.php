@@ -147,13 +147,28 @@ curl_close($ch);
 
 // set post fields
   $post2 = [
-      'item_type' => 'kaltura_asset',
-      'content' => '',
+      'item_type' => 'html_asset',
+      'content' => '<script src="http://mediaplatform.streamingmediahosting.com/p/13980/sp/1398000/embedIframeJs/uiconf_id/6710347/partner_id/13980"></script>
+<div id="smh_player" style="width: 400px; height: 333px;"></div>
+<script>
+kWidget.embed({
+  "targetId": "smh_player",
+  "wid": "_13980",
+  "uiconf_id": 6710347,
+  "flashvars": {
+    "LeadHLSOnAndroid": true
+  },
+  "params": {
+    "wmode": "transparent"
+  },
+  "cache_st": 1610139167,
+  "entry_id": "0_3hg81dln"
+});
+</script>',
       'title'   => 'Test01PPV',
-      'access_control_type_id' => '1',
-      'metadata' => ['first ppv test video', 'second piece of metadata'],
-      'external_asset_id' => '0_i9n0vuul',
-      'template_id' => 1
+      'access_control_type_id' => 2,    
+      'external_asset_id' => '0_3hg81dln',
+      'template_id' => 5
   ];
 
   $ch2 = curl_init();
