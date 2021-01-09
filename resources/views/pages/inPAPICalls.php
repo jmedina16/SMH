@@ -147,7 +147,7 @@ curl_close($ch);
 
 // set post fields
   $post2 = [
-      'item_type' => 'html_asset',
+      'item_type' => 'inplayer_asset',
       'content' => '<script src="http://mediaplatform.streamingmediahosting.com/p/13980/sp/1398000/embedIframeJs/uiconf_id/6710347/partner_id/13980"></script>
 <div id="smh_player" style="width: 400px; height: 333px;"></div>
 <script>
