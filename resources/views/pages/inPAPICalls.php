@@ -144,8 +144,23 @@ curl_close($ch);
 */
 
 //create an item for this follower account
+//start by impersonating the follower
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 // set post fields
+/*
   $post2 = [
       'item_type' => 'inplayer_asset',
       'title'   => 'Foo bar',      
@@ -162,6 +177,7 @@ curl_close($ch);
 
   $headers = array();
   $headers[] = 'Authorization: Bearer ' .$new_access_token;
+  //$headers[] = 'Content-Type: application/x-www-form-urlencoded';
   curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers);
 
   $result2 = curl_exec($ch2);
@@ -177,6 +193,116 @@ curl_close($ch);
     print_r($itemAr);
     echo "</pre><br>";
  }
+
+*/
+
+/*
+$post4 = [
+    'customer_id' => 51804
+];
+
+$ch4 = curl_init();
+
+curl_setopt($ch4, CURLOPT_URL, 'https://staging-v2.inplayer.com/v2/accounts/impersonate');
+curl_setopt($ch4, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch4, CURLOPT_POST, 1);
+curl_setopt($ch4, CURLOPT_POSTFIELDS,$post4);
+
+$headers = array();
+$headers[] = 'Authorization: Bearer ' .$new_access_token;
+$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+curl_setopt($ch4, CURLOPT_HTTPHEADER, $headers);
+
+$result4 = curl_exec($ch4);
+if (curl_errno($ch4)) {
+    echo 'Error:' . curl_error($ch4);
+} else {
+
+  //get the decoded json array
+  $impersAr= json_decode($result4,true);
+
+  //dipslay the results
+  echo "<br>GH18<pre>";
+  print_r($impersAr);
+  echo "</pre><br>"; 
+}
+
+*/
+
+$post5 = [
+    'sign_in_as' => 51804,
+    'email' => 'john@servata.com',
+    'grant_type' => 'social',
+    'client_id' => 51433,
+    'uuid' => '4db745b9-14bd-49a3-bf17-5f419b1bc5f3',
+    'password' => 'Inplayer123'
+];
+
+
+$ch5 = curl_init();
+
+curl_setopt($ch5, CURLOPT_URL, 'https://staging-v2.inplayer.com/accounts/impersonate');
+curl_setopt($ch5, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch5, CURLOPT_POST, 1);
+curl_setopt($ch5, CURLOPT_POSTFIELDS,$post5);
+
+$headers = array();
+$headers[] = 'Authorization: Bearer ' .$new_access_token;
+//$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+curl_setopt($ch5, CURLOPT_HTTPHEADER, $headers);
+
+$result5 = curl_exec($ch5);
+if (curl_errno($ch5)) {
+    echo 'Error:' . curl_error($ch5);
+} else {
+
+  //get the decoded json array
+  $impersAr= json_decode($result5,true);
+
+  //dipslay the results
+  echo "<br>GH19<pre>";
+  print_r($impersAr);
+  echo "</pre><br>"; 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ?>
