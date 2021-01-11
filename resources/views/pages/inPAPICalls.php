@@ -259,6 +259,10 @@ if (curl_errno($ch5)) {
   //get the decoded json array
   $impersAr= json_decode($result5,true);
 
+  //get the follower access token
+  $follower_access_token = $impersAr['token'];
+
+
   //dipslay the results
   echo "<br>GH19<pre>";
   print_r($impersAr);
@@ -270,7 +274,38 @@ if (curl_errno($ch5)) {
 
 
 
+$post2 = [
+      'item_type' => 'inplayer_asset',
+      'title'   => 'Foo bar',      
+      'access_control_type_id' => 1,    
+      'external_asset_id' => 'eaeEa521edAx'
+  ];
 
+  $ch2 = curl_init();
+
+  curl_setopt($ch2, CURLOPT_URL, 'https://staging-v2.inplayer.com/v2/items');
+  curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch2, CURLOPT_POST, 1);
+  curl_setopt($ch2, CURLOPT_POSTFIELDS,$post2);
+
+  $headers = array();
+  $headers[] = 'Authorization: Bearer ' .$follower_access_token;
+  //$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+  curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers);
+
+  $result2 = curl_exec($ch2);
+  if (curl_errno($ch2)) {
+      echo 'Error:' . curl_error($ch2);
+  } else {
+
+    //get the decoded json array
+    $itemAr= json_decode($result2,true);
+
+    //dipslay the results
+    echo "<br>GH16<pre>";
+    print_r($itemAr);
+    echo "</pre><br>";
+ }
 
 
 
