@@ -233,8 +233,8 @@ $post5 = [
     'sign_in_as' => 51804,
     'email' => 'john@servata.com',
     'grant_type' => 'social',
-    'client_id' => 51433,
-    'uuid' => '4db745b9-14bd-49a3-bf17-5f419b1bc5f3',
+    'client_id' => '3b39b5ab-b5fc-4ba3-b770-73155d20e61f',
+    'uuid' => '3b39b5ab-b5fc-4ba3-b770-73155d20e61f',
     'password' => 'Inplayer123'
 ];
 
