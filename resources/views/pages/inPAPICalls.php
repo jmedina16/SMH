@@ -272,7 +272,7 @@ if (curl_errno($ch5)) {
 
 
 
-
+/*
 
 $post2 = [
       'item_type' => 'inplayer_asset',
@@ -307,7 +307,35 @@ $post2 = [
     echo "</pre><br>";
  }
 
+*/
 
+$post6 = ['access_control_type_id'=>1,'item_type'=>'html_asset','content'=>'<script src="http://mediaplatform.streamingmediahosting.com/p/13980/sp/1398000/embedIframeJs/uiconf_id/6710347/partner_id/13980"></script> <div id="smh_player" style="width: 400px; height: 333px;"></div> <script> kWidget.embed({ "targetId": "smh_player", "wid": "_13980", "uiconf_id": 6710347, "flashvars": { "LeadHLSOnAndroid": true }, "params": { "wmode": "transparent" }, "cache_st": 1610139167, "entry_id": "0_3hg81dln" }); </script>','title'=>'Marija API test','metadata[preview_title]=Marija test','metadata[preview_description]=Marija test','metadata[preview_button_label]=Buy'];
+
+$ch6 = curl_init();
+
+curl_setopt($ch6, CURLOPT_URL, 'https://staging-v2.inplayer.com/v2/items');
+curl_setopt($ch6, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch6, CURLOPT_POST, 1);
+curl_setopt($ch6, CURLOPT_POSTFIELDS,$post6);
+
+$headers = array();
+$headers[] = 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRkYjc0NWI5LTE0YmQtNDlhMy1iZjE3LTVmNDE5YjFiYzVmMyJ9.eyJhdWQiOiIzYjM5YjVhYi1iNWZjLTRiYTMtYjc3MC03MzE1NWQyMGU2MWYiLCJqdGkiOiI0ZGI3NDViOS0xNGJkLTQ5YTMtYmYxNy01ZjQxOWIxYmM1ZjMiLCJpYXQiOjE2MTAzNDk2MzksIm5iZiI6MTYxMDM0OTYzOSwiZXhwIjoxNjEyOTQ1MjM5LCJzdWIiOiJqb2huQHNlcnZhdGEuY29tIiwic2NvcGVzIjpbIioiXSwibWlkIjoxLCJhaWQiOjUxODA0LCJtdWkiOiIzYjM5YjVhYi1iNWZjLTRiYTMtYjc3MC03MzE1NWQyMGU2MWYiLCJjdHgiOlsibWVyY2hhbnQiLCJmb2xsb3dlciJdLCJ0aWQiOjUxODA0LCJ0dXVpZCI6IjRkYjc0NWI5LTE0YmQtNDlhMy1iZjE3LTVmNDE5YjFiYzVmMyIsIm9pZCI6MH0.KWz7dSvY52rpg80wyBmGCQ5UBjIemCFqmcK2ySnih4c';
+//$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+curl_setopt($ch6, CURLOPT_HTTPHEADER, $headers);
+
+$result6 = curl_exec($ch6);
+if (curl_errno($ch6)) {
+  echo 'Error:' . curl_error($ch6);
+} else {
+
+  //get the decoded json array
+  $itemAr= json_decode($result6,true);
+
+  //dipslay the results
+  echo "<br>GH22<pre>";
+  print_r($itemAr);
+  echo "</pre><br>";
+}
 
 
 
