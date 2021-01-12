@@ -308,7 +308,7 @@ $post2 = [
  }
 
 */
-
+/*
 $post6 = ['access_control_type_id'=>1,'item_type'=>'html_asset','content'=>'<script src="http://mediaplatform.streamingmediahosting.com/p/13980/sp/1398000/embedIframeJs/uiconf_id/6710347/partner_id/13980"></script> <div id="smh_player" style="width: 400px; height: 333px;"></div> <script> kWidget.embed({ "targetId": "smh_player", "wid": "_13980", "uiconf_id": 6710347, "flashvars": { "LeadHLSOnAndroid": true }, "params": { "wmode": "transparent" }, "cache_st": 1610139167, "entry_id": "0_3hg81dln" }); </script>','title'=>'Marija API test','metadata[preview_title]=Marija test','metadata[preview_description]=Marija test','metadata[preview_button_label]=Buy'];
 
 $ch6 = curl_init();
@@ -336,7 +336,38 @@ if (curl_errno($ch6)) {
   print_r($itemAr);
   echo "</pre><br>";
 }
+*/
 
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://staging-v2.inplayer.com/v2/items',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => 'item_type=html_asset&title=XXMarija%20API%20test%20&access_control_type_id=1&content=%3Cscript%20src%3D%22http%3A%2F%2Fmediaplatform.streamingmediahosting.com%2Fp%2F13980%2Fsp%2F1398000%2FembedIframeJs%2Fuiconf_id%2F6710347%2Fpartner_id%2F13980%22%3E%3C%2Fscript%3E%20%3Cdiv%20id%3D%22smh_player%22%20style%3D%22width%3A%20400px%3B%20height%3A%20333px%3B%22%3E%3C%2Fdiv%3E%20%3Cscript%3E%20kWidget.embed(%7B%20%22targetId%22%3A%20%22smh_player%22%2C%20%22wid%22%3A%20%22_13980%22%2C%20%22uiconf_id%22%3A%206710347%2C%20%22flashvars%22%3A%20%7B%20%22LeadHLSOnAndroid%22%3A%20true%20%7D%2C%20%22params%22%3A%20%7B%20%22wmode%22%3A%20%22transparent%22%20%7D%2C%20%22cache_st%22%3A%201610139167%2C%20%22entry_id%22%3A%20%220_3hg81dln%22%20%7D)%3B%20%3C%2Fscript%3E&metadata%5Bpreview_title%5D=Marija%20test%20&metadata%5Bpreview_description%5D=Marija%20test%20&metadata%5Bpreview_button_label%5D=Buy',
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRkYjc0NWI5LTE0YmQtNDlhMy1iZjE3LTVmNDE5YjFiYzVmMyJ9.eyJhdWQiOiIzYjM5YjVhYi1iNWZjLTRiYTMtYjc3MC03MzE1NWQyMGU2MWYiLCJqdGkiOiI0ZGI3NDViOS0xNGJkLTQ5YTMtYmYxNy01ZjQxOWIxYmM1ZjMiLCJpYXQiOjE2MTAzNDk2MzksIm5iZiI6MTYxMDM0OTYzOSwiZXhwIjoxNjEyOTQ1MjM5LCJzdWIiOiJqb2huQHNlcnZhdGEuY29tIiwic2NvcGVzIjpbIioiXSwibWlkIjoxLCJhaWQiOjUxODA0LCJtdWkiOiIzYjM5YjVhYi1iNWZjLTRiYTMtYjc3MC03MzE1NWQyMGU2MWYiLCJjdHgiOlsibWVyY2hhbnQiLCJmb2xsb3dlciJdLCJ0aWQiOjUxODA0LCJ0dXVpZCI6IjRkYjc0NWI5LTE0YmQtNDlhMy1iZjE3LTVmNDE5YjFiYzVmMyIsIm9pZCI6MH0.KWz7dSvY52rpg80wyBmGCQ5UBjIemCFqmcK2ySnih4c',
+    'Content-Type: application/x-www-form-urlencoded'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+//get the decoded json array
+    $itemAr= json_decode($response,true);
+
+    //dipslay the results
+    echo "<br>GH26<pre>";
+    print_r($itemAr);
+    echo "</pre><br>"
 
 
 
