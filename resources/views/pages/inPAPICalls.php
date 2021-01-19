@@ -337,7 +337,7 @@ if (curl_errno($ch6)) {
   echo "</pre><br>";
 }
 */
-
+/*
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -362,50 +362,81 @@ curl_close($curl);
 echo $response;
 
 //get the decoded json array
-    $itemAr= json_decode($response,true);
+$itemAr= json_decode($response,true);
 
-    //dipslay the results
-    echo "<br>GH26<pre>";
-    print_r($itemAr);
-    echo "</pre><br>"
+//dipslay the results
+echo "<br>GH26<pre>";
+print_r($itemAr);
+echo "</pre><br>";
+*/
+
+//get item ID
+$item_id = 79232;
+
+//get the rest of the params
+
+$access_type_id = 1;
+$amount = 5;
+$currency = 'USD';
+$description = '5.00$ for 1 hour access';
+$starts_at = '2019-11-12T11:45:26.371Z';
+$expires_at = '2019-11-12T11:45:26.371Z';
+$trial_period_quantity = 2;
+$trial_period_period = 'hour';
+$trial_period_description = '2 hour access';
+$setup_fee_amount = 2;
+$setup_fee_description = '3.00$ setup fee';
+$country_iso = 'US';
+$restriction_type = 'blacklist';
+
+//create a URLencoded string of the params
+//do a raw urlencode
+$post_params = 'access_type_id=' . rawurlencode($access_type_id ) . '&';
+$post_params .= 'amount=' . rawurlencode($amount ) . '&';
+$post_params .= 'currency=' . rawurlencode($currency ) . '&';
+$post_params .= 'description=' . rawurlencode($description ) . '&';
+$post_params .= 'starts_at=' . rawurlencode($starts_at ) . '&';
+$post_params .= 'expires_at=' . rawurlencode($expires_at ) . '&';
+$post_params .= 'trial_period_quantity=' . rawurlencode($trial_period_quantity ) . '&';
+$post_params .= 'trial_period_period=' . rawurlencode($trial_period_period ) . '&';
+$post_params .= 'trial_period_description=' . rawurlencode($trial_period_description ) . '&';
+$post_params .= 'setup_fee_amount=' . rawurlencode($setup_fee_amount ) . '&';
+$post_params .= 'setup_fee_description=' . rawurlencode($setup_fee_description );
 
 
+$curl = curl_init();
 
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://staging-v2.inplayer.com/v2/items/' . $item_id . '/access-fees',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => $post_params,
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer ' . $follower_access_token,
+    'Content-Type: application/x-www-form-urlencoded'
+  ),
+));
 
+$response = curl_exec($curl);
 
+curl_close($curl);
+echo $response;
 
+//get the decoded json array
+$priceAr= json_decode($response,true);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//dipslay the results
+echo "<br>GH30<pre>";
+print_r($priceAr);
+echo "</pre><br>";
 
 
 ?>
-
-
-
-
-
-
 
 </div>
                     </div>
